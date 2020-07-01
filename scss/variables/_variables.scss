@@ -5,7 +5,7 @@ $main_font_family: "Roboto";
 // Основной цвет текста на сайте
 $main_color: #fff;
 // Основной line height
-$main_line_height: 1.43;
+$main_line_height: 1.3;
 // Основной размер шрифта
 $main_font_size: 16px;
 
@@ -14,7 +14,7 @@ $container_width: 1140px;
 
 // Высота подвала (если не нужна, можно поставит в auto)
 // $footer_height: 100px;
-$footer_height: 100px;
+$footer_height: auto;
 
 // Набор основных цветов для сайта, можно просто перенести в Avocode
 $color_primary: #7b8287;

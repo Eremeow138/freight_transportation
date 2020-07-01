@@ -7,8 +7,8 @@
 	&__top {
 		background-color: #C8A35F;
 		font-size: 12px;
-		padding: 23px 0;
-		line-height: 0;
+		padding: 15px 0;
+		// line-height: 0;
 
 	}
 
@@ -43,6 +43,10 @@
 		}
 	}
 
+	&__phone {
+		padding-right: 14px;
+	}
+
 	&__bottom {
 		background: #2F343A;
 		padding: 27px 0;
@@ -72,10 +76,11 @@
 	}
 
 	&__location {
-		margin-top: 5px;
+		margin-top: 3px;
 		display: flex;
-		padding-left: 29px;
-		padding-bottom: 3px;
+		margin-left: 29px;
+		align-items: center;
+		// padding-bottom: 3px;
 		// justify-content: space-between;
 		font-size: 14px;
 		letter-spacing: 0.05em;
@@ -84,6 +89,7 @@
 			color: #C8A35F;
 			font-size: 25px;
 			padding-right: 10px;
+
 		}
 	}
 	// // "Липкая" шапка

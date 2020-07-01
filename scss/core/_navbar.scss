@@ -3,7 +3,7 @@
 .navbar {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	// overflow: hidden;
 	text-transform: uppercase;
 	list-style: none;
 	// text-align: right;
@@ -22,23 +22,24 @@
 
 	&__link {
 		position: relative;
+		// z-index: 10;
 
 		&:after {
 			content: '';
 			position: absolute;
 			bottom: -2px;
+			// left: 0;
 			left: 50%;
 			width: 0;
-			opacity: 0;
+			opacity: 1;
 			border-bottom: 1px solid;
 			transition: 0.3s;
 			// transition-property: width left;
+			// z-index: 100;
 
 		}
 
 		&:hover {
-			// color: #9b9b9b;
-
 			&:after {
 				left: 0;
 				width: 100%;

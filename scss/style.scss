@@ -32,3 +32,64 @@
 @import 'core/footer';
 
 @import 'fonts/icon_fonts'; //подключение иконочных шрифтов
+
+.home {
+    background: linear-gradient(0deg, rgba(47, 52, 58, 0.75), rgba(47, 52, 58, 0.75)), url("../img/full_screen_truck.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // min-height: 81vh;
+    // min-height: 84vh;
+    min-height: 620px;
+    display: flex;
+    align-items: flex-end;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // max-width: 920px;
+        // width: 100%;
+        // margin-top: 155px;
+        // padding: 39px 69px 42px;
+        // padding: 15px 69px;
+
+    }
+
+    &__box {
+        border: 1px solid #C8A35F;
+        text-align: center;
+        margin-bottom: 139px;
+        padding: 0 69px;
+
+    }
+
+    &__title {
+        font-size: 64px;
+        letter-spacing: 0.05em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        margin-top: 38px;
+
+    }
+
+    &__text {
+        font-size: 18px;
+        max-width: 780px;
+        line-height: 1.5;
+        margin-bottom: 43px;
+    }
+
+    &__icon {
+        margin-bottom: 41px;
+        font-size: 31px;
+
+    }
+
+}
+
+.section {}
+
+.container_center {}
