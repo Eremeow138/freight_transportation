@@ -713,28 +713,29 @@ template {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 620px;
+  min-height: calc(100vh - 145px);
   display: flex;
-  align-items: flex-end;
 }
 .home__content {
+  position: relative;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  padding-bottom: 65px;
 }
 .home__box {
   border: 1px solid #C8A35F;
   text-align: center;
-  margin-bottom: 139px;
-  padding: 0 69px;
+  padding: 0 68px;
 }
 .home__title {
   font-size: 64px;
   letter-spacing: 0.05em;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 25px;
-  margin-top: 38px;
+  margin-bottom: 24px;
+  margin-top: 39px;
 }
 .home__text {
   font-size: 18px;
@@ -743,6 +744,12 @@ template {
   margin-bottom: 43px;
 }
 .home__icon {
-  margin-bottom: 41px;
+  position: absolute;
   font-size: 31px;
+  bottom: 26px;
+  left: 48.4%;
+}
+
+.section {
+  padding: 15px 0;
 }
