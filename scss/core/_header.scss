@@ -1,0 +1,99 @@
+/* Набросок стилей для шапки
+ ----------------------------------------------------------------------------- */
+.header {
+	// background-color: #ccc;
+	// padding: 10px 0;
+
+	&__top {
+		background-color: #C8A35F;
+		font-size: 12px;
+		padding: 23px 0;
+		line-height: 0;
+
+	}
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: $container_width;
+		padding: 0 15px;
+		margin: 0 auto;
+
+	}
+
+	&__language {
+		text-transform: uppercase;
+		display: flex;
+
+	}
+
+	&__lang {
+		margin: 0 5px;
+		cursor: pointer;
+		opacity: 0.5;
+		transition: 0.3s;
+
+		&:first-child {
+			margin: 0 5px 0 0;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&__bottom {
+		background: #2F343A;
+		padding: 27px 0;
+	}
+
+	&__left {
+		display: flex;
+		align-items: center;
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		border-right: 1px solid #fff;
+
+	}
+
+	&__image {
+		padding-right: 10px;
+		line-height: 0;
+
+	}
+
+	&__text {
+		margin-top: 5px;
+		padding-right: 30px;
+	}
+
+	&__location {
+		margin-top: 5px;
+		display: flex;
+		padding-left: 29px;
+		padding-bottom: 3px;
+		// justify-content: space-between;
+		font-size: 14px;
+		letter-spacing: 0.05em;
+
+		.icon-placeholder {
+			color: #C8A35F;
+			font-size: 25px;
+			padding-right: 10px;
+		}
+	}
+	// // "Липкая" шапка
+	// &__stiky {
+	// 	// Позиционируем
+	// 	position: fixed;
+	// 	// Прибиваем вверх и влево
+	// 	top: 0;
+	// 	left: 0;
+	// 	// Растягиваем на всю ширину
+	// 	width: 100%;
+	// }
+}

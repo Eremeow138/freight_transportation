@@ -1,0 +1,49 @@
+/* Набросок стилей для навигации
+-------------------------------------------------------------------------------*/
+.navbar {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	text-transform: uppercase;
+	list-style: none;
+	// text-align: right;
+	display: flex;
+	font-size: 14px;
+	letter-spacing: 0.05em;
+
+	&__item {
+		// display: inline-block;
+		margin: 0 15px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__link {
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: -2px;
+			left: 50%;
+			width: 0;
+			opacity: 0;
+			border-bottom: 1px solid;
+			transition: 0.3s;
+			// transition-property: width left;
+
+		}
+
+		&:hover {
+			// color: #9b9b9b;
+
+			&:after {
+				left: 0;
+				width: 100%;
+				opacity: 1;
+			}
+		}
+	}
+}

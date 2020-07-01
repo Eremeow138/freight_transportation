@@ -1,0 +1,33 @@
+header.header
+    .header__top
+        .header__content
+            .header__language
+                .header__lang рус
+                .header__lang eng
+                .header__lang fr
+            a(href="tel: 8 (800) 123-45-67 ").header__phone 8 (800) 123-45-67
+            a(href="sales@log.ru").header__email sales@log.ru
+    .header__bottom
+        .header__content
+            .header__left
+                .header__company
+                    a.header__box(href="/")
+                        .header__image
+                            img(src="img/logo-image.svg", alt="image")
+                        .header__text
+                            img(src="img/logo-text.svg", alt="text")
+                a(href="#").header__location
+
+                    i.icon-placeholder 
+                    |Наши офисы
+
+            nav.header__right
+                ul.navbar
+                    li.navbar__item
+                        a.navbar__link(href="#") Услуги
+                    li.navbar__item
+                        a.navbar__link(href="#") О компании
+                    li.navbar__item
+                        a.navbar__link(href="#") Вакансии
+                    li.navbar__item
+                        a.navbar__link(href="#") Контакты
