@@ -651,7 +651,7 @@ template {
   bottom: -2px;
   left: 50%;
   width: 0;
-  opacity: 1;
+  opacity: 0;
   border-bottom: 1px solid;
   transition: 0.3s;
 }
@@ -675,8 +675,8 @@ template {
 
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon-v1.1/fonts/icomoon.eot?lk4hjj");
-  src: url("../fonts/icomoon-v1.1/fonts/icomoon.eot?lk4hjj#iefix") format("embedded-opentype"), url("../fonts/icomoon-v1.1/fonts/icomoon.ttf?lk4hjj") format("truetype"), url("../fonts/icomoon-v1.1/fonts/icomoon.woff?lk4hjj") format("woff"), url("../fonts/icomoon-v1.1/fonts/icomoon.svg?lk4hjj#icomoon") format("svg");
+  src: url("../fonts/icomoon-v1.2/fonts/icomoon.eot?qajeyi");
+  src: url("../fonts/icomoon-v1.2/fonts/icomoon.eot?qajeyi#iefix") format("embedded-opentype"), url("../fonts/icomoon-v1.2/fonts/icomoon.ttf?qajeyi") format("truetype"), url("../fonts/icomoon-v1.2/fonts/icomoon.woff?qajeyi") format("woff"), url("../fonts/icomoon-v1.2/fonts/icomoon.svg?qajeyi#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -694,6 +694,14 @@ template {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-left:before {
+  content: "";
+}
+
+.icon-arrow-right:before {
+  content: "";
 }
 
 .icon-mouse:before {
@@ -722,7 +730,7 @@ template {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 65px;
+  padding-bottom: 87px;
 }
 .home__box {
   border: 1px solid #C8A35F;
@@ -746,10 +754,121 @@ template {
 .home__icon {
   position: absolute;
   font-size: 31px;
-  bottom: 26px;
+  bottom: 8%;
   left: 48.4%;
 }
 
+.transportation {
+  background: #393F47;
+}
+.transportation__content {
+  background: linear-gradient(to right, #393F47 31.4%, #2F343A 31.4%, #2F343A 68.6%, #393F47 68.6%);
+  margin: -15px 0;
+  position: relative;
+}
+.transportation__content .icon-arrow-right {
+  color: #C8A35F;
+  font-size: 23px;
+  margin-left: 33px;
+}
+.transportation__content .icon-arrow-left {
+  color: #C8A35F;
+  font-size: 23px;
+  margin-right: 23px;
+}
+.transportation__box {
+  display: flex;
+  padding: 165px 0 127px;
+  outline: 0;
+}
+.transportation__left {
+  width: 40%;
+}
+.transportation__right {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+.transportation__title {
+  line-height: 1.2;
+}
+.transportation__text {
+  font-size: 18px;
+  margin-top: 18px;
+  max-width: 320px;
+  line-height: 1.6;
+  margin-bottom: 41px;
+}
+.transportation__image {
+  margin-left: 29px;
+}
+
+.slick-arrowBox {
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.slick-arrowBox_top {
+  top: 154px;
+}
+.slick-arrowBox_bottom {
+  bottom: 147px;
+}
+.slick-btn {
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C8A35F;
+  background-color: transparent;
+  cursor: pointer;
+}
 .section {
   padding: 15px 0;
+}
+.section__title {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: 0.05em;
+}
+.section__title:before {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 40px;
+  border-top: 6px solid #C8A35F;
+  top: -45px;
+}
+
+.btn {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+  padding: 19px 56px 18px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #C8A35F;
+  text-align: center;
+  max-width: 100%;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+}
+.btn:active, .btn:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
 }

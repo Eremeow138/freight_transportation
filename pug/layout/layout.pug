@@ -11,7 +11,9 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title=pageTitle
 
+        link(rel="stylesheet", type="text/css", href="css/slick.css")
         link(rel="stylesheet", type="text/css", href="css/style.css")
+
     body
         .wrapper
             include header.pug
@@ -20,3 +22,6 @@ html(lang="en")
                 block content
 
         //- include footer.pug
+    script(src="js/jquery.js")
+    script(src="js/slick/slick.min.js")
+    script(src="js/script.js")
