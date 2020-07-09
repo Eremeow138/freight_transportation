@@ -114,6 +114,7 @@
             color: #C8A35F;
             font-size: 23px;
             margin-right: 23px;
+
         }
     }
 
@@ -125,7 +126,7 @@
         // max-width: 920px;
         display: flex;
         // margin-left: -15px;
-        padding: 165px 0 127px;
+        padding: 165px 0 100px;
         outline: 0;
 
     }
@@ -161,6 +162,7 @@
 
     &__image {
         margin-left: 29px;
+        max-height: 266px;
 
     }
 
@@ -189,7 +191,13 @@
         }
 
         &_bottom {
-            bottom: 147px;
+            bottom: 120px;
+        }
+
+        &:hover ~ {
+            // color: lighten(#C8A35F, 20%);
+            color: red;
+
         }
     }
 
@@ -332,3 +340,98 @@
 }
 
 .btn-primary {}
+
+.services {
+    background-color: #2F343A;
+
+    &__box {
+        padding: 149px 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 47px 0;
+
+    }
+
+    &__item {
+        width: 25%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #393F47;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #C8A35F;
+
+        }
+
+        &:hover i {
+            color: #393F47;
+        }
+
+        &:hover .services__logo {
+            background-color: #fff;
+        }
+
+        // &.services__logo:hover {
+        //     background-color: #fff;
+        // }
+    }
+
+    &__logo {
+        position: relative;
+        z-index: 1;
+        width: 70px;
+        height: 70px;
+        background-color: #393F47;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 36px 0 23px;
+
+        .icon-airplane-flight {
+            font-size: 30px;
+            // z-index: 50;
+        }
+
+        // &:hover {
+        //     background-color: #fff;
+        // }
+
+        // &:before {
+        //     content: '';
+        //     position: absolute;
+        //     width: 70px;
+        //     height: 70px;
+        //     background-color: #000;
+        //     border-radius: 100%;
+        //     top: -65%;
+        //     left: -65%;
+        //     z-index: -1;
+        //     // top: 50%;
+        //     // left: 50%;
+        // }
+    }
+
+    &__name {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        margin-bottom: 28px;
+        // margin: 10px;
+    }
+
+}
+
+.section {
+    &__title {}
+
+}

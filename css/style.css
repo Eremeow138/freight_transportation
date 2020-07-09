@@ -778,7 +778,7 @@ template {
 }
 .transportation__box {
   display: flex;
-  padding: 165px 0 127px;
+  padding: 165px 0 100px;
   outline: 0;
 }
 .transportation__left {
@@ -801,6 +801,7 @@ template {
 }
 .transportation__image {
   margin-left: 29px;
+  max-height: 266px;
 }
 
 .slick-arrowBox {
@@ -815,7 +816,10 @@ template {
   top: 154px;
 }
 .slick-arrowBox_bottom {
-  bottom: 147px;
+  bottom: 120px;
+}
+.slick-arrowBox:hover ~ {
+  color: red;
 }
 .slick-btn {
   border: none;
@@ -871,4 +875,58 @@ template {
 .btn:active, .btn:focus {
   background-color: rgba(255, 255, 255, 0.8);
   color: #000;
+}
+
+.services {
+  background-color: #2F343A;
+}
+.services__box {
+  padding: 149px 0;
+}
+.services__content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 47px 0;
+}
+.services__item {
+  width: 25%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #393F47;
+  cursor: pointer;
+}
+.services__item:hover {
+  background-color: #C8A35F;
+}
+.services__item:hover i {
+  color: #393F47;
+}
+.services__item:hover .services__logo {
+  background-color: #fff;
+}
+.services__logo {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  background-color: #393F47;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 36px 0 23px;
+}
+.services__logo .icon-airplane-flight {
+  font-size: 30px;
+}
+.services__name {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
 }
