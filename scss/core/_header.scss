@@ -8,23 +8,37 @@
 		background-color: #C8A35F;
 		font-size: 12px;
 		padding: 15px 0;
-		// line-height: 0;
+
+		.header__content {
+			@media (min-width: 768px) {
+				justify-content: space-between;
+			}
+			justify-content: space-between;
+
+		}
 
 	}
 
 	&__content {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 		align-items: center;
 		max-width: $container_width;
 		padding: 0 15px;
 		margin: 0 auto;
+		@media (min-width: 768px) {
+			justify-content: space-between;
+		}
 
 	}
 
 	&__language {
 		text-transform: uppercase;
 		display: flex;
+		flex-grow: 1;
+		@media (min-width: 768px) {
+			flex-grow: initial;
+		}
 
 	}
 
@@ -43,18 +57,56 @@
 		}
 	}
 
+	&__comunicationLink {
+		margin-left: 15px;
+
+		.icon-phone {
+			font-size: 12px;
+
+			@media (min-width: 768px) {
+				display: none;
+			}
+
+		}
+
+		.icon-envelop {
+			font-size: 12px;
+
+			@media (min-width: 768px) {
+				display: none;
+			}
+		}
+	}
+
 	&__phone {
+		display: none;
 		padding-right: 14px;
+		@media (min-width: 768px) {
+			display: block;
+		}
+
+	}
+
+	&__email {
+		display: none;
+		@media (min-width: 768px) {
+			display: block;
+		}
 	}
 
 	&__bottom {
 		background: #2F343A;
 		padding: 27px 0;
+
 	}
 
 	&__left {
 		display: flex;
 		align-items: center;
+		margin-left: 60px;
+		@media (min-width: 768px) {
+			margin-left: 0;
+		}
 	}
 
 	&__box {
@@ -70,18 +122,23 @@
 
 	}
 
-	&__text {
+	&__description {
 		margin-top: 5px;
-		padding-right: 30px;
+		padding-right: 19px;
+		@media (min-width: 992px) {
+			padding-right: 30px;
+		}
 	}
 
 	&__location {
 		margin-top: 3px;
 		display: flex;
-		margin-left: 29px;
+		margin-left: 15px;
+		@media (min-width: 992px) {
+			margin-left: 29px;
+		}
+
 		align-items: center;
-		// padding-bottom: 3px;
-		// justify-content: space-between;
 		font-size: 14px;
 		letter-spacing: 0.05em;
 
@@ -90,6 +147,13 @@
 			font-size: 25px;
 			padding-right: 10px;
 
+		}
+	}
+
+	&__text {
+		display: none;
+		@media (min-width: 768px) {
+			display: block;
 		}
 	}
 	// // "Липкая" шапка

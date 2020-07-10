@@ -41,8 +41,10 @@
 //     }
 // }
 $icomoon-font-family: "icomoon" !default;
-$icomoon-font-path: "../fonts/icomoon-v1.2/fonts" !default;
+$icomoon-font-path: "../fonts/icomoon-v1.3/fonts" !default;
 
+$icon-phone: "\e942";
+$icon-envelop: "\e945";
 $icon-arrow-left: "\e903";
 $icon-arrow-right: "\e904";
 $icon-mouse: "\e902";
@@ -51,8 +53,8 @@ $icon-placeholder: "\e901";
 
 @font-face {
     font-family: '#{$icomoon-font-family}';
-    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?qajeyi");
-    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?qajeyi#iefix") format('embedded-opentype'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?qajeyi") format('truetype'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?qajeyi") format('woff'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?qajeyi##{$icomoon-font-family}") format('svg');
+    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?lpq7ct");
+    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?lpq7ct#iefix") format('embedded-opentype'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?lpq7ct") format('truetype'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?lpq7ct") format('woff'), url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?lpq7ct##{$icomoon-font-family}") format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -72,6 +74,18 @@ $icon-placeholder: "\e901";
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone {
+    &:before {
+        content: $icon-phone;
+    }
+}
+
+.icon-envelop {
+    &:before {
+        content: $icon-envelop;
+    }
 }
 
 .icon-arrow-left {

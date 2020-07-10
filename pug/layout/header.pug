@@ -5,8 +5,12 @@ header.header
                 .header__lang рус
                 .header__lang eng
                 .header__lang fr
-            a(href="tel: 8 (800) 123-45-67 ").header__phone 8 (800) 123-45-67
-            a(href="sales@log.ru").header__email sales@log.ru
+            a(href="tel: 8 (800) 123-45-67 ").header__comunicationLink
+                .header__phone 8 (800) 123-45-67
+                i.icon-phone
+            a(href="sales@log.ru").header__comunicationLink
+                .header__email sales@log.ru
+                i.icon-envelop
     .header__bottom
         .header__content
             .header__left
@@ -14,14 +18,17 @@ header.header
                     a.header__box(href="/")
                         .header__image
                             img(src="img/logo-image.svg", alt="image")
-                        .header__text
+                        .header__description
                             img(src="img/logo-text.svg", alt="text")
                 a(href="#").header__location
 
-                    i.icon-placeholder 
-                    |Наши офисы
+                    i.icon-placeholder
+                    .header__text Наши офисы
+
 
             nav.header__right
+                input.navbar__swicher#navbar_toggle(type="checkbox")
+                label(for="navbar_toggle").navbar__toggle
                 ul.navbar
                     li.navbar__item
                         a.navbar__link(href="#") Услуги

@@ -194,9 +194,13 @@
             bottom: 120px;
         }
 
-        &:hover ~ {
-            // color: lighten(#C8A35F, 20%);
-            color: red;
+        &:hover .slick-btn {
+            color: lighten(#C8A35F, 15%);
+
+        }
+
+        &:hover i {
+            color: lighten(#C8A35F, 15%);
 
         }
     }
