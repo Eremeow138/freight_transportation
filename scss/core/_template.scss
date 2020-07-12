@@ -25,4 +25,5 @@
 	// Свойство необходимо если нужен прижатый к нижней части экрана подвал
 	padding-bottom: $footer_height;
 	@extend %clear_a;
+	background-color: #2F343A;
 }
