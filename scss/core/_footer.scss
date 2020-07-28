@@ -1,12 +1,73 @@
 /* Набросок стилей для подвала
  ----------------------------------------------------------------------------- */
 .footer {
+	margin-top: -15px;
 	position: relative;
 	height: $footer_height;
-	background: #BFF08E;
+	background: #C8A35F;
 	@extend %clear_all;
+
 	.container_center {
 		padding-top: 10px;
 		padding-bottom: 10px;
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		padding: 48px 0;
+
+	}
+
+	&__company {
+		display: flex;
+		align-items: center;
+
+	}
+
+	&__logo {}
+
+	&__text {
+		margin-left: 10px;
+	}
+
+	&__information {
+		display: flex;
+		justify-content: space-between;
+		flex-grow: 1;
+		font-size: 14px;
+		margin-left: 30px;
+		margin-right: 24px;
+	}
+
+	&__left {
+		display: flex;
+		flex-grow: 10;
+		justify-content: space-between;
+		max-width: 500px;
+	}
+
+	&__address {}
+
+	&__email {
+		color: #2F343A;
+	}
+
+	&__phones {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__phone {}
+
+	&__right {
+		display: flex;
+		align-items: flex-end;
+	}
+
+	&__author {
+		color: #2F343A;
+		text-decoration-line: underline;
+		// flex-grow: 10;
 	}
 }

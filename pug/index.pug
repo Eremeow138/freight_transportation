@@ -89,10 +89,10 @@ block content
                         .company__number 361
                         .company__subtitle грузовиков
                         .company__text Volvo, Scania
-                    .company__item.company__item_image
+                    .company__item.company__item_image(style="background: url('img/red_truck.jpg')")
                         //- .company__image
                         //- img(src="img/red_truck.jpg", alt="image")
-                    .company__item.company__item_image
+                    .company__item.company__item_image(style="background: url('img/red_truck.jpg')")
                         //- .company__image
                         //- img(src="img/red_truck.jpg", alt="image")
                     .company__item
@@ -101,4 +101,19 @@ block content
                         .company__text профессионалов
 
     // end company
+    // begin map
+    section#map.map.section
+        #yandexMap.map__content.map__content_dark
+        //- <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A536ecf44d5432b917143af2394e16871d257ed47b43d88665832a92fd55a5ce9&amp;width=100%25&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script>
 
+
+    // end map
+    //- // begin test
+    //- section#test.test.section
+    //-     .container_center
+    //-         h2.section__title 
+    //-         .test__content(style="width:100px; height:100px")
+    //-             .test__left
+    //-             .test__right
+    //- 
+    //- // end test

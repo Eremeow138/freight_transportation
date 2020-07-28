@@ -1,6 +1,20 @@
 footer.footer
     .container_center
-        p
-        | &copy; 2016 |
-        i.fa.fa-github(aria-hidden='true') &nbsp;
-        a(href='#') View Source
+        .footer__box
+            a(href="#").footer__company
+                .footer__logo
+                    img(src="img/logo-image-footer.svg", alt="logo")
+                .footer__text
+                    img(src="img/logo-text.svg", alt="text")    
+            .footer__information
+                .footer__left
+                    .footer__contact
+                        .footer__address  123456, Санкт-Петербург, Невский пр-кт 127
+                        .footer__email sales@log.ru
+                    .footer__contact
+                        .footer__phones
+                            a(href="tel: +7 (812) 344-56-65 ").footer__phone +7 (812) 344-56-65
+                            a(href="tel: +7 (812) 355-56-65 ").footer__phone +7 (812) 355-56-65
+
+                .footer__right
+                    a(href="http:// D-E-N.ru").footer__author Разработано - D-E-N.ru

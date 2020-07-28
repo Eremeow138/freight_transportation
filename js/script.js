@@ -39,3 +39,21 @@ $('.js-slider').slick({
       // });
   }
 replaceVehicalImage($(window).width());
+
+// $('.map__content').click(function(event) {
+//     console.log('work');
+//     console.log($(this));
+//     $(this).removeClass('dark');
+// });
+// $('.map__content').mouseover(function(event) {
+//     /* Act on the event */
+//     // console.log('work');
+//     // console.log($(this));
+//     $(this).removeClass('map__content_dark');
+// });
+// $('.map__content').mouseout(function(event) {
+//     /* Act on the event */
+//     // console.log('work');
+//     // console.log($(this));
+//     $(this).addClass('map__content_dark');
+// });

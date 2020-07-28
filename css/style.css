@@ -825,13 +825,56 @@ template {
 /* Набросок стилей для подвала
  ----------------------------------------------------------------------------- */
 .footer {
+  margin-top: -15px;
   position: relative;
   height: auto;
-  background: #BFF08E;
+  background: #C8A35F;
 }
 .footer .container_center {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.footer__box {
+  display: flex;
+  align-items: center;
+  padding: 48px 0;
+}
+.footer__company {
+  display: flex;
+  align-items: center;
+}
+.footer__text {
+  margin-left: 10px;
+}
+.footer__information {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  font-size: 14px;
+  margin-left: 30px;
+  margin-right: 24px;
+}
+.footer__left {
+  display: flex;
+  flex-grow: 10;
+  justify-content: space-between;
+  max-width: 500px;
+}
+.footer__email {
+  color: #2F343A;
+}
+.footer__phones {
+  display: flex;
+  flex-direction: column;
+}
+.footer__right {
+  display: flex;
+  align-items: flex-end;
+}
+.footer__author {
+  color: #2F343A;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 @font-face {
@@ -1271,7 +1314,6 @@ template {
   }
 }
 .company__item_image {
-  background: url("../img/red_truck.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1299,4 +1341,33 @@ template {
   margin-bottom: 10px;
   font-size: 12px;
   color: #000;
+}
+
+#yandexMap {
+  width: 100%;
+  height: 450px;
+  padding: 0;
+  margin: 0;
+}
+
+.map {
+  margin-top: 90px;
+  position: relative;
+  transition: 1s;
+}
+.map__content_dark {
+  transition: 1s;
+}
+.map__content_dark:before {
+  transition: 0.4s;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(0deg, rgba(57, 63, 71, 0.6), rgba(57, 63, 71, 0.6));
+  z-index: 1000;
+}
+.map__content_dark:hover:before {
+  content: "";
+  width: 0;
 }

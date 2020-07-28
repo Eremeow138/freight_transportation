@@ -587,7 +587,8 @@
         }
 
         &_image {
-            background: url("../img/red_truck.jpg");
+            // object-fit: fill;
+            // background: url("../img/red_truck.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -632,5 +633,45 @@
     //     background-repeat: no-repeat;
     //     background-size: cover;
     // }
+
+}
+
+#yandexMap {
+    width: 100%;
+    height: 450px;
+    padding: 0;
+    margin: 0;
+}
+
+.map {
+    margin-top: 90px;
+    position: relative;
+    transition: 1s;
+    // height: 450px;
+
+    &__content {
+        &_dark {
+            transition: 1s;
+
+            &:before {
+                transition: 0.4s;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 450px;
+                background: linear-gradient(0deg, rgba(57, 63, 71, 0.6), rgba(57, 63, 71, 0.6));
+                z-index: 1000;
+
+            }
+
+            &:hover {
+                &:before {
+                    content: '';
+                    width: 0;
+                }
+            }
+
+        }
+    }
 
 }
