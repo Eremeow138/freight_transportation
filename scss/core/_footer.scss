@@ -1,6 +1,10 @@
 /* Набросок стилей для подвала
  ----------------------------------------------------------------------------- */
+
 .footer {
+	// * {
+	// 	border: 1px solid #000;
+	// }
 	margin-top: -15px;
 	position: relative;
 	height: $footer_height;
@@ -15,59 +19,130 @@
 	&__box {
 		display: flex;
 		align-items: center;
-		padding: 48px 0;
+		flex-direction: column;
+		padding: 18px 0;
+		@media (min-width: 425px) {
+			flex-direction: row;
+		}
 
 	}
 
 	&__company {
 		display: flex;
 		align-items: center;
+		margin: 30px 0;
 
 	}
 
-	&__logo {}
+	&__logo {
+		max-width: 40px;
+	}
 
 	&__text {
 		margin-left: 10px;
+
+		@media (min-width: 425px) {
+			display: none;
+		}
+		@media (min-width: 992px) {
+			display: initial;
+		}
+
 	}
 
 	&__information {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		flex-grow: 1;
 		font-size: 14px;
-		margin-left: 30px;
-		margin-right: 24px;
+		flex-direction: column;
+		@media (min-width: 992px) {
+			margin-left: 30px;
+			margin-right: 24px;
+		}
+		@media (min-width: 768px) {
+
+			justify-content: space-between;
+		}
+		@media (min-width: 425px) {
+			flex-direction: row;
+		}
 	}
 
 	&__left {
 		display: flex;
-		flex-grow: 10;
+		flex-grow: 0;
 		justify-content: space-between;
 		max-width: 500px;
+		flex-direction: column;
+		// flex-wrap: wrap;
+		@media (min-width: 768px) {
+			flex-direction: row;
+			flex-grow: 10;
+			// align-items: center;
+		}
+
+	}
+
+	&__contact {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		// height: 40px;
+
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		margin-bottom: 15px;
+		@media (min-width: 425px) {
+			margin-left: 30px;
+
+			text-align: inherit;
+		}
+		@media (min-width: 992px) {
+			margin-left: 0;
+			margin-bottom: 0;
+		}
 	}
 
 	&__address {}
 
 	&__email {
 		color: #2F343A;
+		margin-left: auto;
+		margin-right: auto;
+		@media (min-width: 425px) {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
 
 	&__phones {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
+		height: 40px;
 	}
 
 	&__phone {}
 
 	&__right {
+
 		display: flex;
 		align-items: flex-end;
+		min-width: 147px;
+		margin: auto;
+		@media (min-width: 992px) {
+
+			margin: 0 0 0 30px;
+		}
+
 	}
 
 	&__author {
 		color: #2F343A;
 		text-decoration-line: underline;
+
 		// flex-grow: 10;
 	}
 }

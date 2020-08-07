@@ -57,3 +57,15 @@ replaceVehicalImage($(window).width());
 //     // console.log($(this));
 //     $(this).addClass('map__content_dark');
 // });
+
+
+// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
+$('a[href^="#"]').click( function(e){
+    e.preventDefault();
+    console.log("work");
+	var scroll_el = $(this).attr('href');
+	if ($(scroll_el).length != 0) {
+	$('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+	}
+	return false;
+});

@@ -60,7 +60,8 @@
 .wrapper,
 body,
 html {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   position: relative;
   box-sizing: content-box;
 }
@@ -837,39 +838,119 @@ template {
 .footer__box {
   display: flex;
   align-items: center;
-  padding: 48px 0;
+  flex-direction: column;
+  padding: 18px 0;
+}
+@media (min-width: 425px) {
+  .footer__box {
+    flex-direction: row;
+  }
 }
 .footer__company {
   display: flex;
   align-items: center;
+  margin: 30px 0;
+}
+.footer__logo {
+  max-width: 40px;
 }
 .footer__text {
   margin-left: 10px;
 }
+@media (min-width: 425px) {
+  .footer__text {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .footer__text {
+    display: initial;
+  }
+}
 .footer__information {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-grow: 1;
   font-size: 14px;
-  margin-left: 30px;
-  margin-right: 24px;
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  .footer__information {
+    margin-left: 30px;
+    margin-right: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .footer__information {
+    justify-content: space-between;
+  }
+}
+@media (min-width: 425px) {
+  .footer__information {
+    flex-direction: row;
+  }
 }
 .footer__left {
   display: flex;
-  flex-grow: 10;
+  flex-grow: 0;
   justify-content: space-between;
   max-width: 500px;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .footer__left {
+    flex-direction: row;
+    flex-grow: 10;
+  }
+}
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 15px;
+}
+@media (min-width: 425px) {
+  .footer__contact {
+    margin-left: 30px;
+    text-align: inherit;
+  }
+}
+@media (min-width: 992px) {
+  .footer__contact {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
 }
 .footer__email {
   color: #2F343A;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 425px) {
+  .footer__email {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 .footer__phones {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 40px;
 }
 .footer__right {
   display: flex;
   align-items: flex-end;
+  min-width: 147px;
+  margin: auto;
+}
+@media (min-width: 992px) {
+  .footer__right {
+    margin: 0 0 0 30px;
+  }
 }
 .footer__author {
   color: #2F343A;
