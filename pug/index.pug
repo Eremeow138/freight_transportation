@@ -108,12 +108,82 @@ block content
 
 
     // end map
-    //- // begin test
-    //- section#test.test.section
-    //-     .container_center
-    //-         h2.section__title 
-    //-         .test__content(style="width:100px; height:100px")
-    //-             .test__left
-    //-             .test__right
-    //- 
-    //- // end test
+
+    // Begin Modal vac
+    .modal.fade.vac#vac
+        .modal-dialog
+            .modal-content
+                a(href="#" class="modal-close" data-dismiss="modal")
+
+                .modal-body
+                    .vacancies-block
+                        h2.vacancies-block__title Актуальные вакансии
+                        .vacancies-block__box
+                            .vacancies-block__vacancy
+                                .vacancies-block__name Водитель грузовика
+                                ul.vacancies-block__list
+                                    li.vacancies-block__item Экстримальное вождение грузовиков
+                                    li.vacancies-block__item Контроль погрузки и разгрузки
+                                    li.vacancies-block__item Слушать "Тихий огонек моей души"
+                            .vacancies-block__vacancy
+                                .vacancies-block__name Водитель грузовика
+                                ul.vacancies-block__list
+                                    li.vacancies-block__item Экстримальное вождение грузовиков
+                                    li.vacancies-block__item Контроль погрузки и разгрузки
+                                    li.vacancies-block__item Слушать "Тихий огонек моей души"
+                            .vacancies-block__vacancy
+                                .vacancies-block__name Водитель грузовика
+                                ul.vacancies-block__list
+                                    li.vacancies-block__item Экстримальное вождение грузовиков
+                                    li.vacancies-block__item Контроль погрузки и разгрузки
+                                    li.vacancies-block__item Слушать "Тихий огонек моей души"
+                            .vacancies-block__vacancy.vacancies-block__vacancy_nonVacancy
+                                .vacancies-block__name Нет подходящей вакансии?
+                                .vacancies-block__desc Всё равно отправьте резюме — вдруг мы просто ещё не знаем, что без вас никуда.
+                                a.btn.btn-vacancy(href="#form") Отправить резюме
+
+                    .form#form
+                        h2.form__title Ваше резюме
+                        form.form__grid(action="mail.php" method="POST")
+                            .form__row
+                                input(type="text", name="firstName", placeholder="Ваше имя", required)
+                            .form__row
+                                input(type="text", name="lastName", placeholder="Ваша фамилия", required)
+                            .form__row
+                                input(type="text", name="email", placeholder="Ваш e-mail", required)
+                            .form__row
+                                .drop
+                                    .drop__content
+                                        //- пытаемся завернуть инпут в див, чтобы можно было собирать данные для отправки формы. Сейчас проблема с границами в этом месте.
+                                        //- input.drop__toogle(type="text", name="position", placeholder="Желаемая должность", required)  
+                                        .drop__wrapper 
+                                            input.drop__toogle(type="text", name="position", placeholder="Желаемая должность", required)
+                                        .drop__list
+                                            label.drop__item
+                                                input.drop__checkbox(type="checkbox") 
+                                                .drop__position Водитель
+                                            label.drop__item
+                                                input.drop__checkbox(type="checkbox") 
+                                                .drop__position Юрист
+                                            label.drop__item
+                                                input.drop__checkbox(type="checkbox") 
+                                                .drop__position Логист
+
+
+                            .form__row
+                                textarea(type="text", name="message", placeholder="Почему выбрали нас?")
+                            button.btn.btn_form(type="submit") Отправить резюме
+
+
+
+
+
+    // End modal vac
+
+    // Begin Modal info
+    .modal.fade.info#info
+        .modal-dialog
+            .modal-content
+                a(href="#" class="modal-close" data-dismiss="modal")
+
+                .info__message

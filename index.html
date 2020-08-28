@@ -7,6 +7,8 @@
     <title>Транспортная компания</title>
     <link rel="stylesheet" type="text/css" href="css/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link href="css/jquery.formstyler.css" rel="stylesheet"/>
+    <link href="css/jquery.formstyler.theme.css" rel="stylesheet"/>
   </head>
   <body>
     <div class="wrapper">
@@ -36,6 +38,7 @@
               <ul class="navbar">
                 <li class="navbar__item"><a class="navbar__link" href="#services">Услуги</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#company">О компании</a></li>
+                <li class="navbar__item"><a class="navbar__link js_showVacancies" href="#">Вакансии</a></li>
                 <li class="navbar__item"><a class="navbar__link" href="#map">Контакты</a></li>
               </ul>
             </nav>
@@ -167,6 +170,98 @@
           <div class="map__content map__content_dark" id="yandexMap"></div>
         </section>
         <!-- end map-->
+        <!-- Begin Modal vac-->
+        <div class="modal fade vac" id="vac">
+          <div class="modal-dialog">
+            <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+              <div class="modal-body">
+                <div class="vacancies-block">
+                  <h2 class="vacancies-block__title">Актуальные вакансии</h2>
+                  <div class="vacancies-block__box">
+                    <div class="vacancies-block__vacancy">
+                      <div class="vacancies-block__name">Водитель грузовика</div>
+                      <ul class="vacancies-block__list">
+                        <li class="vacancies-block__item">Экстримальное вождение грузовиков</li>
+                        <li class="vacancies-block__item">Контроль погрузки и разгрузки</li>
+                        <li class="vacancies-block__item">Слушать "Тихий огонек моей души"</li>
+                      </ul>
+                    </div>
+                    <div class="vacancies-block__vacancy">
+                      <div class="vacancies-block__name">Водитель грузовика</div>
+                      <ul class="vacancies-block__list">
+                        <li class="vacancies-block__item">Экстримальное вождение грузовиков</li>
+                        <li class="vacancies-block__item">Контроль погрузки и разгрузки</li>
+                        <li class="vacancies-block__item">Слушать "Тихий огонек моей души"</li>
+                      </ul>
+                    </div>
+                    <div class="vacancies-block__vacancy">
+                      <div class="vacancies-block__name">Водитель грузовика</div>
+                      <ul class="vacancies-block__list">
+                        <li class="vacancies-block__item">Экстримальное вождение грузовиков</li>
+                        <li class="vacancies-block__item">Контроль погрузки и разгрузки</li>
+                        <li class="vacancies-block__item">Слушать "Тихий огонек моей души"</li>
+                      </ul>
+                    </div>
+                    <div class="vacancies-block__vacancy vacancies-block__vacancy_nonVacancy">
+                      <div class="vacancies-block__name">Нет подходящей вакансии?</div>
+                      <div class="vacancies-block__desc">Всё равно отправьте резюме — вдруг мы просто ещё не знаем, что без вас никуда.</div><a class="btn btn-vacancy" href="#form">Отправить резюме</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="form" id="form">
+                  <h2 class="form__title">Ваше резюме</h2>
+                  <form class="form__grid" action="mail.php" method="POST">
+                    <div class="form__row">
+                      <input type="text" name="firstName" placeholder="Ваше имя" required="required"/>
+                    </div>
+                    <div class="form__row">
+                      <input type="text" name="lastName" placeholder="Ваша фамилия" required="required"/>
+                    </div>
+                    <div class="form__row">
+                      <input type="text" name="email" placeholder="Ваш e-mail" required="required"/>
+                    </div>
+                    <div class="form__row">
+                      <div class="drop">
+                        <div class="drop__content">
+                          <div class="drop__wrapper"> 
+                            <input class="drop__toogle" type="text" name="position" placeholder="Желаемая должность" required="required"/>
+                          </div>
+                          <div class="drop__list">
+                            <label class="drop__item">
+                              <input class="drop__checkbox" type="checkbox"/>
+                              <div class="drop__position">Водитель</div>
+                            </label>
+                            <label class="drop__item">
+                              <input class="drop__checkbox" type="checkbox"/>
+                              <div class="drop__position">Юрист</div>
+                            </label>
+                            <label class="drop__item">
+                              <input class="drop__checkbox" type="checkbox"/>
+                              <div class="drop__position">Логист</div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form__row">
+                      <textarea type="text" name="message" placeholder="Почему выбрали нас?"></textarea>
+                    </div>
+                    <button class="btn btn_form" type="submit">Отправить резюме</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End modal vac-->
+        <!-- Begin Modal info-->
+        <div class="modal fade info" id="info">
+          <div class="modal-dialog">
+            <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+              <div class="info__message"></div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
     <footer class="footer">
@@ -190,7 +285,9 @@
   </body>
   <script src="js/jquery.js"></script>
   <script src="js/slick/slick.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/modal.js"></script>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c7bb6b77-3736-4ed1-944b-c7364b333d9d" type="text/javascript"></script>
   <script src="js/icon_customImage.js" type="text/javascript"></script>
+  <script src="js/script.js"></script>
+  <script src="js/jquery.formstyler.min.js"></script>
 </html>
