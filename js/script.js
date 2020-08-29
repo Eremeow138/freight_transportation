@@ -43,23 +43,7 @@ $('.js-slider').slick({
   }
 replaceVehicalImage($(window).width());
 
-// $('.map__content').click(function(event) {
-//     console.log('work');
-//     console.log($(this));
-//     $(this).removeClass('dark');
-// });
-// $('.map__content').mouseover(function(event) {
-//     /* Act on the event */
-//     // console.log('work');
-//     // console.log($(this));
-//     $(this).removeClass('map__content_dark');
-// });
-// $('.map__content').mouseout(function(event) {
-//     /* Act on the event */
-//     // console.log('work');
-//     // console.log($(this));
-//     $(this).addClass('map__content_dark');
-// });
+
 
 $('.js_showVacancies').on('click', function(){
     showVac();
@@ -80,7 +64,7 @@ $('a[href^="#"]').click( function(e){
 
         if (scroll_el=='#form') {
 
-            $('#info').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+            $('.modal').animate({ scrollTop: $(scroll_el).offset().top }, 500);
             console.log(scroll_el);
         }else {
             $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
@@ -114,15 +98,17 @@ function showVac() {
 
     // body.html(template);
     modal.modal('show');
-    $('.modal-close').on('click', function(){
-        modal.modal('hide');
-    });
+    // $('.modal-close').on('click', function(){
+    //     modal.modal('hide');
+    // });
 }
 
 $('.drop__wrapper').on('click', function() {
+
     $(this).toggleClass('active');
 
     $(this).closest('.drop').find('.drop__list').toggleClass('open');
+    // checkFiels($('.drop__toogle'));
 });
 
 //функция заполняющая желаемую должность
@@ -134,21 +120,45 @@ function posContatation(){
     //     console.log(pos);
     // });
     $('.drop__checkbox').on('click', function() {
+        // e.preventDefault();
+
         arr = [];
         $('.drop__checkbox').each(function(){
             // console.log($(this).attr('checked'));
             if ($(this).prop("checked")) {
-                arr.push($(this).closest('.drop__item').text());
+                // console.log($(this).closest('.drop__item').find('.drop__position').text());
+                // if (arr.length) {
+                //     pos=" "+$(this).closest('.drop__item').find('.drop__position').text();
+                //     arr.push(pos);
+                // }else {
+                //     arr.push($(this).closest('.drop__item').find('.drop__position').text());
+                // }
+                arr.push($(this).closest('.drop__item').find('.drop__position').text());
+                // arr.push($(this).find('.drop__position').text());
+                // arr.push($(this).closest('.drop__item').text());
             }
 
         });
 
         console.log(arr);
         if (arr.length) {
-            $('.drop__toogle').text(arr);
+            console.log('im here');
+
+            pos = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                pos+=", "+ arr[i];
+            }
+
+
+            $('.drop__toogle').val(pos);
+            console.log(pos);
         }else {
-            $('.drop__toogle').text("Желаемая должность");
+            $('.drop__toogle').val("");
+            $('.drop__toogle').attr('placeholder', 'Желаемая должность');
+
         }
+        console.log('Значение: '+$('.drop__toogle').val());
+        checkFiels($('.drop__toogle'));
 
 
 
@@ -170,14 +180,11 @@ function submitForm() {
     });
 
     $('[type=submit]').on('click', function(e) {
-        console.log('push');
         // Отменяем стандартное действие.
         // В данном случае отправку формы после нажатия унопки с type=submit
         e.preventDefault();
         // Можно отменить работу отельных библиотек и скриптов.
         // e.stopPropagination();
-        console.log('pushed button ');
-
 
         // Можно почитать что входит в стандартный аргумент event срабатывающий при событии
         // console.log(e);
@@ -188,19 +195,20 @@ function submitForm() {
             fields = form.find('[required]'),
             // Записываем значение атрибута формы action
             url = form.attr('action'),
-            // Хаписываем значения полей форм. Обязателен атрибут name у полей с уникальным значением
-            formData = form.serialize(),
+            // // Хаписываем значения полей форм. Обязателен атрибут name у полей с уникальным значением
+            // formData = form.serialize(),
 
             // Создаем переменную для счетчика пустых полей
             empty = 0;
-
-        // console.log(fields);
-        console.log(form);
+            console.log(form);
+            formData = new FormData();
+            formData.append('firstName', $('#fName').val());
+	        formData.append('lastName', $('#fLname').val());
 
 
         // console.log(url);
         console.log(formData);
-
+        // console.log($('#fName').val());
         // Перебираем обязательные поля формы
         fields.each(function(index, el) {
             // Проверяем пустое ли поле
@@ -228,6 +236,9 @@ function submitForm() {
             // form.submit();
             // Либо через аякс, без перезагрузки страницы
             $.ajax({
+
+                contentType: false, // важно - убираем форматирование данных по умолчанию
+                processData: false, // важно - убираем преобразование строк по умолчанию
                 // Ссылка на обработчик файла
                 url: url,
                 // Тип метода отправки
@@ -281,15 +292,70 @@ function submitForm() {
     });
 
 
-    function checkFiels(el) {
-        // При разных условиях меняем классы и внешний вид полей
-        if (el.val() === '') {
-            el.addClass('invalid');
-            el.removeClass('valid');
-        } else {
-            el.removeClass('invalid');
-            el.addClass('valid');
+    // function checkFiels(el) {
+    //     // При разных условиях меняем классы и внешний вид полей
+    //     if (el.val() === '') {
+    //         el.addClass('invalid');
+    //         el.removeClass('valid');
+    //     } else {
+    //         el.removeClass('invalid');
+    //         el.addClass('valid');
+    //     }
+    // }
+}
+// submitForm();
+// функция закрытия модальных окон
+// Отправка данных на сервер
+function send(event, php){
+console.log("Отправка запроса");
+// event.preventDefault ? event.preventDefault() : event.returnValue = false;
+if (event.preventDefault) {
+    event.preventDefault();
+}else{
+    event.returnValue = false;
+}
+var req = new XMLHttpRequest();
+req.open('POST', php, true);
+req.onload = function() {
+	if (req.status >= 200 && req.status < 400) {
+	json = JSON.parse(this.response); // Ебанный internet explorer 11
+    	console.log(json);
+
+    	// ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
+    	if (json.result == "success") {
+    		// Если сообщение отправлено
+    		alert("Сообщение отправлено");
+    	} else {
+    		// Если произошла ошибка
+    		alert("Ошибка. Сообщение не отправлено");
+    	}
+    // Если не удалось связаться с php файлом
+    } else {alert("Ошибка сервера. Номер: "+req.status);}};
+
+// Если не удалось отправить запрос. Стоит блок на хостинге
+req.onerror = function() {alert("Ошибка отправки запроса");};
+req.send(new FormData(event.target));
+}
+
+function modalClose(){
+    $('.modal-close').on('click', function() {
+        $(this).closest('.modal').modal('hide');
+        if ($('.modal.in').length > 0) {
+
+            $('body').addClass('modal-open');
         }
+        // console.log($('.modal.in'));
+    } );
+}
+modalClose();
+// функция смены внешнего вида полей
+function checkFiels(el) {
+    // При разных условиях меняем классы и внешний вид полей
+    if (el.val() === '') {
+        el.addClass('invalid');
+        el.removeClass('valid');
+    } else {
+        el.removeClass('invalid');
+        el.addClass('valid');
     }
 }
-submitForm();

@@ -11,6 +11,10 @@ $lastName = $_POST['lastName'];
 $email = $_POST['email'];
 
 $message = $_POST['message'];
+
+$position = $_POST['position'];
+
+$file = $_FILES['myfile'];
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -29,10 +33,24 @@ $mail->addAddress('eremeow138@yandex.ru');     // Кому будет уходи
 //$mail->addBCC('bcc@example.com');
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+if (!empty($file['name'][0])) {
+    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
+        $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
+        $filename = $file['name'][$ct];
+        if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
+            $mail->addAttachment($uploadfile, $filename);
+            $rfile[] = "Файл $filename прикреплён";
+        } else {
+            $rfile[] = "Не удалось прикрепить файл $filename";
+        }
+    }
+}
+
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$firstName . ' оставил заявку. <br>Почта этого пользователя: ' .$email. ' <br>Сообщение:<br> '.$message;
+$mail->Body    = '' .$firstName . ' ' .$lastName .' оставил вакансию.<br>Желаемая должность: ' .$position. '  <br>Почта этого пользователя: ' .$email. ' <br>Сообщение:<br> '.$message;
 $mail->AltBody = '';
 
 if(!$mail->send()) {

@@ -173,7 +173,7 @@
         <!-- Begin Modal vac-->
         <div class="modal fade vac" id="vac">
           <div class="modal-dialog">
-            <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+            <div class="modal-content"><a class="modal-close" href="#"></a>
               <div class="modal-body">
                 <div class="vacancies-block">
                   <h2 class="vacancies-block__title">Актуальные вакансии</h2>
@@ -210,7 +210,7 @@
                 </div>
                 <div class="form" id="form">
                   <h2 class="form__title">Ваше резюме</h2>
-                  <form class="form__grid" action="mail.php" method="POST">
+                  <form class="form__grid" method="POST" enctype="multipart/form-data" onsubmit="send(event, 'send.php')">
                     <div class="form__row">
                       <input type="text" name="firstName" placeholder="Ваше имя" required="required"/>
                     </div>
@@ -224,7 +224,7 @@
                       <div class="drop">
                         <div class="drop__content">
                           <div class="drop__wrapper"> 
-                            <input class="drop__toogle" type="text" name="position" placeholder="Желаемая должность" required="required"/>
+                            <input class="drop__toogle" type="text" name="position" placeholder="Желаемая должность" required="required" readonly="readonly"/>
                           </div>
                           <div class="drop__list">
                             <label class="drop__item">
@@ -246,6 +246,9 @@
                     <div class="form__row">
                       <textarea type="text" name="message" placeholder="Почему выбрали нас?"></textarea>
                     </div>
+                    <div class="form__row">
+                      <input type="file" name="myfile[]" multiple="multiple" id="myfile"/>
+                    </div>
                     <button class="btn btn_form" type="submit">Отправить резюме</button>
                   </form>
                 </div>
@@ -256,12 +259,13 @@
         <!-- End modal vac-->
         <!-- Begin Modal info-->
         <div class="modal fade info" id="info">
-          <div class="modal-dialog">
-            <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal-dialog modal-dialog-sm">
+            <div class="modal-content"><a class="modal-close" href="#"></a>
               <div class="info__message"></div>
             </div>
           </div>
         </div>
+        <!-- End Modal info-->
       </main>
     </div>
     <footer class="footer">

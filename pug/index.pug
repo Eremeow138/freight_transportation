@@ -113,7 +113,7 @@ block content
     .modal.fade.vac#vac
         .modal-dialog
             .modal-content
-                a(href="#" class="modal-close" data-dismiss="modal")
+                a(href="#" class="modal-close")
 
                 .modal-body
                     .vacancies-block
@@ -144,7 +144,8 @@ block content
 
                     .form#form
                         h2.form__title Ваше резюме
-                        form.form__grid(action="mail.php" method="POST")
+                        //- form.form__grid(action="mail.php" method="POST")
+                        form.form__grid(method="POST" enctype="multipart/form-data" onsubmit="send(event, 'send.php')")
                             .form__row
                                 input(type="text", name="firstName", placeholder="Ваше имя", required)
                             .form__row
@@ -154,10 +155,9 @@ block content
                             .form__row
                                 .drop
                                     .drop__content
-                                        //- пытаемся завернуть инпут в див, чтобы можно было собирать данные для отправки формы. Сейчас проблема с границами в этом месте.
                                         //- input.drop__toogle(type="text", name="position", placeholder="Желаемая должность", required)  
                                         .drop__wrapper 
-                                            input.drop__toogle(type="text", name="position", placeholder="Желаемая должность", required)
+                                            input.drop__toogle(type="text", name="position", placeholder="Желаемая должность", required, readonly)
                                         .drop__list
                                             label.drop__item
                                                 input.drop__checkbox(type="checkbox") 
@@ -172,6 +172,8 @@ block content
 
                             .form__row
                                 textarea(type="text", name="message", placeholder="Почему выбрали нас?")
+                            .form__row
+                                input(type="file", name="myfile[]" multiple id="myfile")
                             button.btn.btn_form(type="submit") Отправить резюме
 
 
@@ -182,8 +184,9 @@ block content
 
     // Begin Modal info
     .modal.fade.info#info
-        .modal-dialog
+        .modal-dialog.modal-dialog-sm
             .modal-content
-                a(href="#" class="modal-close" data-dismiss="modal")
+                a(href="#" class="modal-close")
 
                 .info__message
+    // End Modal info

@@ -71,7 +71,7 @@
             max-width: 950px;
         }
 
-        .modal-sm & {
+        &-sm {
             max-width: 400px;
         }
     }
@@ -89,6 +89,8 @@
             padding: 46px 53px;
         }
         text-align: center;
+
+        &_small {}
     }
 
     &-backdrop {
