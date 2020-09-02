@@ -246,10 +246,12 @@
                     <div class="form__row">
                       <textarea type="text" name="message" placeholder="Почему выбрали нас?"></textarea>
                     </div>
-                    <div class="form__row">
-                      <input type="file" name="myfile[]" multiple="multiple" id="myfile"/>
+                    <div class="form__row form__row_flex">
+                      <div class="fileDrop"></div>
+                      <label class="fileDrop__label btn btn_form" for="myfile">Прикрепить файл</label>
+                      <input class="fileDrop__input" type="file" name="myfile[]" multiple="multiple" id="myfile" data-multiple-caption=""/>
+                      <button class="btn btn_form" type="submit">Отправить резюме</button>
                     </div>
-                    <button class="btn btn_form" type="submit">Отправить резюме</button>
                   </form>
                 </div>
               </div>

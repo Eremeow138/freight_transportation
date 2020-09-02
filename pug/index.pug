@@ -172,9 +172,11 @@ block content
 
                             .form__row
                                 textarea(type="text", name="message", placeholder="Почему выбрали нас?")
-                            .form__row
-                                input(type="file", name="myfile[]" multiple id="myfile")
-                            button.btn.btn_form(type="submit") Отправить резюме
+                            .form__row.form__row_flex
+                                .fileDrop
+                                label.fileDrop__label.btn.btn_form(for="myfile") Прикрепить файл
+                                input.fileDrop__input(type="file", name="myfile[]" multiple id="myfile" data-multiple-caption="")
+                                button.btn.btn_form(type="submit") Отправить резюме
 
 
 

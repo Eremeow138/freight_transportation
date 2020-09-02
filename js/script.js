@@ -1,5 +1,5 @@
-//нужно разобраться с проверкой формы и отправкой
 
+// слик слайдер
 $('.js-slider').slick({
     // setting-name: setting-value
     nextArrow: '<div class="slick-arrowBox slick-arrowBox_top"><button type="button" class="slick-next slick-btn">След</button><i class="icon-arrow-right"></i></div>',
@@ -11,7 +11,6 @@ $('.js-slider').slick({
 
 // $('input, select').styler();
   let resized = false;
-
   $(window).resize(function(event) {
       let ww = $(window).width();
       // Запрещаем выполнение скриптов при смене только высоты вьюпорта (фикс для скролла в IOS и Android >=v.5)
@@ -111,6 +110,28 @@ $('.drop__wrapper').on('click', function() {
     // checkFiels($('.drop__toogle'));
 });
 
+// меняем представление импут лайбла
+$('.fileDrop__input').on('change', function(e) {
+    // console.log('change check');
+    // console.log(this.files[0].name);
+    let fileName = '',
+    labelVal = $('.fileDrop__label').html();
+    // console.log('label val = '+labelVal);
+    console.log(this.files);
+    if (this.files && this.files.length > 1) {
+        console.log('true');
+        fileName= this.files.length+' файла выбрано';
+
+    }else {
+        fileName = this.files[0].name;
+    }
+
+    if (fileName) {
+        $('.fileDrop__label').html(fileName);
+    }else {
+        $('.fileDrop__label').html(labelVal);
+    }
+});
 //функция заполняющая желаемую должность
 function posContatation(){
     let pos = "";

@@ -1389,11 +1389,12 @@ template {
   color: #000;
 }
 
-.btn-vacancy,
 .btn_form {
   padding: 19px 19px 18px;
   margin-left: 15px;
   margin-right: 15px;
+  margin-bottom: 50px;
+  width: calc(50% - 30px);
 }
 
 .services {
@@ -1791,6 +1792,10 @@ template {
 .form__row textarea:-ms-input-placeholder {
   color: #2F343A;
 }
+.form__row_flex {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .drop {
   width: 100%;
@@ -1910,4 +1915,13 @@ template {
 }
 .drop__checkbox:hover + .drop__position:before {
   opacity: 1;
+}
+
+.fileDrop__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
