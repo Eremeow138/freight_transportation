@@ -1422,7 +1422,7 @@ template {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #393F47;
   cursor: pointer;
@@ -1441,6 +1441,11 @@ template {
     width: 25%;
   }
 }
+@media (min-width: 425px) {
+  .services__item {
+    height: 180px;
+  }
+}
 .services__logo {
   position: relative;
   z-index: 1;
@@ -1452,6 +1457,11 @@ template {
   justify-content: center;
   align-items: center;
   margin: 36px 0 23px;
+}
+@media (min-width: 425px) {
+  .services__logo {
+    margin: 36px 0 0;
+  }
 }
 .services__logo .icon-airplane-flight {
   font-size: 30px;

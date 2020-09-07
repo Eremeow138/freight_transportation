@@ -111,6 +111,8 @@ $('.js_showDetail').on('click', function(){
     //     modal.modal('hide');
     // });
 });
+
+//две функции ниже отвечают за корректную работу выпадающего списка должностей
 $('.drop__wrapper').on('click', function() {
 
     $(this).toggleClass('active');
@@ -120,7 +122,8 @@ $('.drop__wrapper').on('click', function() {
 });
 $(document).mouseup(function (e){
     let elem  =$('.drop__wrapper');
-    if (!elem.is(e.target)&& elem.has(e.target).length === 0) {
+    let elemList = $('.drop__list');
+    if (!elem.is(e.target)&& elem.has(e.target).length === 0 && !elemList.is(e.target) && elemList.has(e.target).length === 0 ) {
         // elem.toggleClass('active');
         elem.removeClass('active');
         elem.closest('.drop').find('.drop__list').removeClass('open');
