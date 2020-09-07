@@ -65,7 +65,7 @@
                 <div class="transportation__left">
                   <h2 class="section__title transportation__title">грузоперевозки по европе</h2>
                   <div class="transportation__text">Страны Евросоюза, а также Украина, Белоруссия со всеми документами.</div>
-                  <div class="button btn btn-primary" type="submit">Подробнее</div>
+                  <div class="button btn btn-primary">Подробнее</div>
                 </div>
                 <div class="transportation__right"><img class="transportation__image" src="img/truck.png" alt=""/></div>
               </div>
@@ -73,7 +73,7 @@
                 <div class="transportation__left">
                   <h2 class="section__title transportation__title">Морская перевозка грузов</h2>
                   <div class="transportation__text">Северный полюс, а также Тихий океан со всеми документами</div>
-                  <div class="button btn btn-primary" type="submit">Подробнее</div>
+                  <div class="button btn btn-primary">Подробнее</div>
                 </div>
                 <div class="transportation__right"><img class="transportation__image" src="img/boath.png" alt=""/></div>
               </div>
@@ -81,7 +81,7 @@
                 <div class="transportation__left">
                   <h2 class="section__title transportation__title">доставка груза в космос</h2>
                   <div class="transportation__text">Международная космическая станция, а также Луна со всеми документами</div>
-                  <div class="button btn btn-primary" type="submit">Подробнее</div>
+                  <div class="button btn btn-primary">Подробнее</div>
                 </div>
                 <div class="transportation__right"><img class="transportation__image" src="img/rocket.png" alt=""/></div>
               </div>
@@ -95,35 +95,35 @@
             <div class="services__box">
               <h2 class="section__title">Услуги</h2>
               <div class="services__content">
-                <div class="services__item">
+                <div class="services__item js_showDetail">
                   <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
                   <div class="services__name">Авиаперевозки</div>
                 </div>
-                <div class="services__item">
+                <div class="services__item js_showDetail">
+                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
+                  <div class="services__name">Морская перевозка</div>
+                </div>
+                <div class="services__item js_showDetail">
+                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
+                  <div class="services__name">Космическая доставка</div>
+                </div>
+                <div class="services__item js_showDetail">
+                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
+                  <div class="services__name">Грузоперевозки</div>
+                </div>
+                <div class="services__item js_showDetail">
                   <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
                   <div class="services__name">Авиаперевозки</div>
                 </div>
-                <div class="services__item">
+                <div class="services__item js_showDetail">
                   <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
                   <div class="services__name">Авиаперевозки</div>
                 </div>
-                <div class="services__item">
+                <div class="services__item js_showDetail">
                   <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
                   <div class="services__name">Авиаперевозки</div>
                 </div>
-                <div class="services__item">
-                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
-                  <div class="services__name">Авиаперевозки</div>
-                </div>
-                <div class="services__item">
-                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
-                  <div class="services__name">Авиаперевозки</div>
-                </div>
-                <div class="services__item">
-                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
-                  <div class="services__name">Авиаперевозки</div>
-                </div>
-                <div class="services__item">
+                <div class="services__item js_showDetail">
                   <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
                   <div class="services__name">Авиаперевозки</div>
                 </div>
@@ -266,6 +266,15 @@
           </div>
         </div>
         <!-- End Modal info-->
+        <!-- Begin Modal detail-->
+        <div class="modal fade detail" id="detail">
+          <div class="modal-dialog modal-dialog-sm">
+            <div class="modal-content"><a class="modal-close" href="#"></a>
+              <div class="detail__message"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End Modal detail-->
       </main>
     </div>
     <footer class="footer">

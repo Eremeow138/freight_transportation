@@ -101,7 +101,16 @@ function showVac() {
     //     modal.modal('hide');
     // });
 }
+$('.js_showDetail').on('click', function(){
+    let modal = $('#detail');
+    let body = modal.find('.modal-body');
 
+    // body.html(template);
+    modal.modal('show');
+    // $('.modal-close').on('click', function(){
+    //     modal.modal('hide');
+    // });
+});
 $('.drop__wrapper').on('click', function() {
 
     $(this).toggleClass('active');

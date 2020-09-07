@@ -19,9 +19,9 @@ ymaps.ready(function () {
             // Необходимо указать данный тип макета.
             iconLayout: 'default#image',
             // Своё изображение иконки метки.
-            iconImageHref: 'img/point.png',
+            iconImageHref: 'img/geometka.png',
             // Размеры метки.
-            iconImageSize: [100, 100],
+            iconImageSize: [70, 70],
             // Смещение левого верхнего угла иконки относительно
             // её "ножки" (точки привязки).
             iconImageOffset: [-75, -10]
