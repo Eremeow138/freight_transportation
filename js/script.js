@@ -102,10 +102,24 @@ function showVac() {
     // });
 }
 $('.js_showDetail').on('click', function(){
+
     let modal = $('#detail');
     let body = modal.find('.modal-body');
+    // console.log($(this));
+    let title = $(this).find($('.services__name')).text();
+    let logoClass = $(this).find($('.services__logo')).children().attr('class');
+    console.log($(this).find($('.services__logo')));
+    console.log(logoClass);
 
-    // body.html(template);
+
+    let template = `<div class="detail__wrapper">
+      <h2 class="detail__title">`+ title + `</h2><i class="detail__image `+logoClass+`"></i>
+      <div class="detail__content">
+        <div class="detail__description">Описание</div>
+
+      </div>
+    </div>`;
+    body.html(template);
     modal.modal('show');
     // $('.modal-close').on('click', function(){
     //     modal.modal('hide');
