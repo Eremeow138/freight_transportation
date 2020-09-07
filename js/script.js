@@ -67,8 +67,8 @@ $('a[href^="#"]').click( function(e){
             console.log(scroll_el);
         }else {
             $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-            console.log('2');
-            console.log(scroll_el);
+            // console.log('2');
+            // console.log(scroll_el);
         }
         // конец меняю
 	// $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
@@ -77,7 +77,7 @@ $('a[href^="#"]').click( function(e){
 	return false;
 });
 
-
+//здесь в будующем подключим json файл откуда будем брать данные для вакансий
 function showVac() {
 
     let template = `<div class="productModal__img">
@@ -109,7 +109,15 @@ $('.drop__wrapper').on('click', function() {
     $(this).closest('.drop').find('.drop__list').toggleClass('open');
     // checkFiels($('.drop__toogle'));
 });
+$(document).mouseup(function (e){
+    let elem  =$('.drop__wrapper');
+    if (!elem.is(e.target)&& elem.has(e.target).length === 0) {
+        // elem.toggleClass('active');
+        elem.removeClass('active');
+        elem.closest('.drop').find('.drop__list').removeClass('open');
 
+    }
+});
 // меняем представление импут лайбла
 $('.fileDrop__input').on('change', function(e) {
     // console.log('change check');
@@ -120,7 +128,7 @@ $('.fileDrop__input').on('change', function(e) {
     console.log(this.files);
     if (this.files && this.files.length > 1) {
         console.log('true');
-        fileName= this.files.length+' файла выбрано';
+        fileName= 'Выбрано '+this.files.length+' файла ';
 
     }else {
         fileName = this.files[0].name;
@@ -191,6 +199,7 @@ function posContatation(){
     });
 }
 posContatation();
+// функция submitForm более не используется, вместо нее send()
 function submitForm() {
     // подготавливаем модальное окно с сообщением
     let modal = $('#info'),
@@ -221,6 +230,7 @@ function submitForm() {
 
             // Создаем переменную для счетчика пустых полей
             empty = 0;
+
             console.log(form);
             formData = new FormData();
             formData.append('firstName', $('#fName').val());
@@ -324,40 +334,121 @@ function submitForm() {
     //     }
     // }
 }
+// Проверка заполненности полей на лету
+$('input').on('keyup', function() {
+    checkFiels($(this));
+});
 // submitForm();
 // функция закрытия модальных окон
 // Отправка данных на сервер
+// $('[type=submit]').on('click', function(e) {
+//     e.preventDefault();
+// });
+
+//здесь мы прверяем форму и если какое то поле не заполенно - отменяем submit
+$('[type=submit]').on('click', function(e) {
+    // Отменяем стандартное действие.
+    // В данном случае отправку формы после нажатия унопки с type=submit
+    // e.preventDefault();
+    let fields = $('#form').find('[required]'),
+    // // Создаем переменную для счетчика пустых полей
+    empty = 0;
+
+    console.log(fields);
+    fields.each(function(index, el) {
+        // Проверяем пустое ли поле
+        if ($(this).val() === '') {
+            // Увеличиваем счетчик полей на 1
+            empty++;
+            // console.log(this);
+        }
+        checkFiels($(this));
+    });
+    if (empty>0) {
+        e.preventDefault();
+    }
+
+
+
+});
 function send(event, php){
+// event.preventDefault();
 console.log("Отправка запроса");
-// event.preventDefault ? event.preventDefault() : event.returnValue = false;
-if (event.preventDefault) {
-    event.preventDefault();
-}else{
-    event.returnValue = false;
+// // Ищем обязательные поля
+// let fields = $('#form').find('[required]'),
+// // Создаем переменную для счетчика пустых полей
+// empty = 0;
+//     // fields = form.find('[required]');
+//     // console.log(form);
+// console.log(fields);
+// fields.each(function(index, el) {
+//     // Проверяем пустое ли поле
+//     if ($(this).val() === '') {
+//         // Увеличиваем счетчик полей на 1
+//         empty++;
+//         console.log(this);
+//     }
+//
+//     // Универсальная функция для проверки и визуализации пустых полей
+//     checkFiels($(this));
+//     });
+//     if (empty > 0) {
+//         return false;
+//     }
+//     else{
+        // подготавливаем модальное окно с сообщением
+        let modal = $('#info'),
+            message = modal.find('.info__message');
+
+        modal.on('hidden.bs.modal', function (e) {
+            message.html('');
+        });
+        console.log(event.preventDefault);
+        // event.preventDefault ? event.preventDefault() : event.returnValue = false;
+        if (event.preventDefault) {
+            event.preventDefault();
+        }else{
+            event.returnValue = false;
+        }
+        var req = new XMLHttpRequest();
+        req.open('POST', php, true);
+        req.onload = function() {
+        	if (req.status >= 200 && req.status < 400) {
+        	json = JSON.parse(this.response); // Ебанный internet explorer 11
+            	console.log(json);
+
+            	// ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
+            	if (json.result == "success") {
+            		// Если сообщение отправлено
+            		// alert("Сообщение отправлено");
+                    // Пример с открытием окна
+                    modal.modal('show');
+                    message.html('Ваша форма успешно отправлена. <br> Мы свяжемся с вами в ближайшее время.');
+            	} else {
+            		// Если произошла ошибка
+            		// alert("Ошибка. Сообщение не отправлено");
+                    // Пример с открытием окна
+                    modal.modal('show');
+                    message.html('Ошибка. Сообщение не отправлено');
+            	}
+            // Если не удалось связаться с php файлом
+            // } else {alert("Ошибка сервера. Номер: "+req.status);}};
+            } else {modal.modal('show'); message.html('Ошибка сервера. Номер: '+req.status);}};
+
+        // Если не удалось отправить запрос. Стоит блок на хостинге
+        // req.onerror = function() {alert("Ошибка отправки запроса");};
+        req.onerror = function() {modal.modal('show'); message.html('Ошибка отправки запроса');};
+        // console.log(event.target);
+        // console.log($('#form').submit());
+        req.send(new FormData(event.target));
+        // req.send(new FormData($('#form')));
+    // }
+
 }
-var req = new XMLHttpRequest();
-req.open('POST', php, true);
-req.onload = function() {
-	if (req.status >= 200 && req.status < 400) {
-	json = JSON.parse(this.response); // Ебанный internet explorer 11
-    	console.log(json);
-
-    	// ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
-    	if (json.result == "success") {
-    		// Если сообщение отправлено
-    		alert("Сообщение отправлено");
-    	} else {
-    		// Если произошла ошибка
-    		alert("Ошибка. Сообщение не отправлено");
-    	}
-    // Если не удалось связаться с php файлом
-    } else {alert("Ошибка сервера. Номер: "+req.status);}};
-
-// Если не удалось отправить запрос. Стоит блок на хостинге
-req.onerror = function() {alert("Ошибка отправки запроса");};
-req.send(new FormData(event.target));
-}
-
+// $('#formSend').on('click', function() {
+//     console.log($('#form'));
+//
+// });
 function modalClose(){
     $('.modal-close').on('click', function() {
         $(this).closest('.modal').modal('hide');

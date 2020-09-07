@@ -143,9 +143,14 @@ block content
                                 a.btn.btn-vacancy(href="#form") Отправить резюме
 
                     .form#form
-                        h2.form__title Ваше резюме
+                        //- form.form__grid(method="POST" enctype="multipart/form-data" onsubmit="send(event, 'send.php')")
+
                         //- form.form__grid(action="mail.php" method="POST")
+                        //- form.form__grid(method="POST" enctype="multipart/form-data")
+
+                        h2.form__title Ваше резюме
                         form.form__grid(method="POST" enctype="multipart/form-data" onsubmit="send(event, 'send.php')")
+
                             .form__row
                                 input(type="text", name="firstName", placeholder="Ваше имя", required)
                             .form__row
@@ -175,7 +180,8 @@ block content
                             .form__row.form__row_flex
                                 .fileDrop
                                 label.fileDrop__label.btn.btn_form(for="myfile") Прикрепить файл
-                                input.fileDrop__input(type="file", name="myfile[]" multiple id="myfile" data-multiple-caption="")
+                                input.fileDrop__input(type="file", name="myfile[]" multiple id="myfile" )
+                                //- button.btn.btn_form(type="submit" onclick="send(event, 'send.php')") Отправить резюме
                                 button.btn.btn_form(type="submit") Отправить резюме
 
 

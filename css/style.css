@@ -1394,7 +1394,12 @@ template {
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 50px;
-  width: calc(50% - 30px);
+  width: calc(100% - 30px);
+}
+@media (min-width: 768px) {
+  .btn_form {
+    width: calc(50% - 30px);
+  }
 }
 
 .services {
