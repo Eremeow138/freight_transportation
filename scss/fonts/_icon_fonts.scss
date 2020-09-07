@@ -41,15 +41,25 @@
 //     }
 // }
 $icomoon-font-family: "icomoon" !default;
-$icomoon-font-path: "../fonts/icomoon-v1.3/fonts" !default;
+$icomoon-font-path: "../fonts/icomoon-v1.4/fonts" !default;
 
-$icon-phone: "\e942";
-$icon-envelop: "\e945";
+// $icon-phone: "\e942";
+// $icon-envelop: "\e945";
+// $icon-arrow-left: "\e903";
+// $icon-arrow-right: "\e904";
+// $icon-mouse: "\e902";
+// $icon-airplane-flight: "\e900";
+// $icon-placeholder: "\e901";
+$icon-truck: "\e905";
+$icon-ship: "\e906";
 $icon-arrow-left: "\e903";
 $icon-arrow-right: "\e904";
 $icon-mouse: "\e902";
 $icon-airplane-flight: "\e900";
 $icon-placeholder: "\e901";
+$icon-phone: "\e942";
+$icon-envelop: "\e945";
+$icon-rocket: "\e9a5";
 
 @font-face {
     font-family: '#{$icomoon-font-family}';
@@ -76,15 +86,15 @@ $icon-placeholder: "\e901";
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-phone {
+.icon-truck {
     &:before {
-        content: $icon-phone;
+        content: $icon-truck;
     }
 }
 
-.icon-envelop {
+.icon-ship {
     &:before {
-        content: $icon-envelop;
+        content: $icon-ship;
     }
 }
 
@@ -115,5 +125,23 @@ $icon-placeholder: "\e901";
 .icon-placeholder {
     &:before {
         content: $icon-placeholder;
+    }
+}
+
+.icon-phone {
+    &:before {
+        content: $icon-phone;
+    }
+}
+
+.icon-envelop {
+    &:before {
+        content: $icon-envelop;
+    }
+}
+
+.icon-rocket {
+    &:before {
+        content: $icon-rocket;
     }
 }

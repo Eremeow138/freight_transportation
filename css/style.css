@@ -1095,8 +1095,8 @@ template {
 
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon-v1.3/fonts/icomoon.eot?lpq7ct");
-  src: url("../fonts/icomoon-v1.3/fonts/icomoon.eot?lpq7ct#iefix") format("embedded-opentype"), url("../fonts/icomoon-v1.3/fonts/icomoon.ttf?lpq7ct") format("truetype"), url("../fonts/icomoon-v1.3/fonts/icomoon.woff?lpq7ct") format("woff"), url("../fonts/icomoon-v1.3/fonts/icomoon.svg?lpq7ct#icomoon") format("svg");
+  src: url("../fonts/icomoon-v1.4/fonts/icomoon.eot?lpq7ct");
+  src: url("../fonts/icomoon-v1.4/fonts/icomoon.eot?lpq7ct#iefix") format("embedded-opentype"), url("../fonts/icomoon-v1.4/fonts/icomoon.ttf?lpq7ct") format("truetype"), url("../fonts/icomoon-v1.4/fonts/icomoon.woff?lpq7ct") format("woff"), url("../fonts/icomoon-v1.4/fonts/icomoon.svg?lpq7ct#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -1116,12 +1116,12 @@ template {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-phone:before {
-  content: "";
+.icon-truck:before {
+  content: "";
 }
 
-.icon-envelop:before {
-  content: "";
+.icon-ship:before {
+  content: "";
 }
 
 .icon-arrow-left:before {
@@ -1142,6 +1142,18 @@ template {
 
 .icon-placeholder:before {
   content: "";
+}
+
+.icon-phone:before {
+  content: "";
+}
+
+.icon-envelop:before {
+  content: "";
+}
+
+.icon-rocket:before {
+  content: "";
 }
 
 .home {
@@ -1463,7 +1475,10 @@ template {
     margin: 36px 0 0;
   }
 }
-.services__logo .icon-airplane-flight {
+.services__logo .icon-airplane-flight,
+.services__logo .icon-rocket,
+.services__logo .icon-ship,
+.services__logo .icon-truck {
   font-size: 30px;
 }
 .services__name {
