@@ -1,19 +1,16 @@
-// $( document ).ready(function() {
-//     console.log('готово');
-// });
+//переменная ниже хранит json файл с услугами
 let appData;
+//скрываем прелоадер при загрузке документа
 window.onload = function () {
-    console.log('готово2');
     hideLoader($('body'), 1000);
 };
+
 setServiceList($('.services__content'), 'https://script.google.com/macros/s/AKfycbzs72jZeb9ykJcfQBWqndyyUXNRvdt0qQeGICvJIobTET7iIqo/exec');
+//Функция для получения джейсона и заполнения блока services
 function setServiceList(list, url) {
     showLoader(list);
     $.getJSON(url, function(json, status) {
-        console.log(json);
-        console.log(status);
         appData = json.result;
-        console.log(appData);
 
         if (status !== 'success') {
             $('.services__content').html('Произошла ошибка, обновите страницу!');
@@ -27,6 +24,7 @@ function setServiceList(list, url) {
     });
 
 }
+
 function setTemplateServiceList(list, index, arr) {
     list.append(`<div class="services__item js_showDetail" data-id = "`+arr[index][0]+`">
       <div class="services__logo"> <i class="icon-`+arr[index][2]+`"></i></div>
@@ -43,7 +41,7 @@ $('.js-slider').slick({
     fade: true,
   });
 
-// $('input, select').styler();
+// отслеживаем изменения ширины экрана, для адаптации стрелок слайдера
   let resized = false;
   $(window).resize(function(event) {
       let ww = $(window).width();
@@ -56,25 +54,23 @@ $('.js-slider').slick({
   });
 
   function replaceVehicalImage(ww) {
-      // $('.transportation__box').each(function(index, el) {
-      console.log(ww);
+
       let slide = $('.transportation__box'), left, right, text;
       slide.each(function(index, el) {
           right = $(el).find('.transportation__right');
           left = $(el).find('.transportation__left');
           text = $(el).find('.transportation__text');
           if (ww < 751) {
-              console.log("isMobile");
+              // console.log("isMobile");
               right.insertAfter(text);
-              // $('.transportation__right').insertAfter('.transportation__text');
           } else {
-              console.log('isDesctop');
+              // console.log('isDesctop');
               right.insertAfter(left);
           }
       });
-      // });
   }
-replaceVehicalImage($(window).width());
+
+// replaceVehicalImage($(window).width());
 
 
 
@@ -88,8 +84,6 @@ $('a[href^="#"]').click( function(e){
     if (scroll_el == "#") {
         return false;
     }
-    console.log("work");
-    console.log(scroll_el);
 
 	if ($(scroll_el).length != 0) {
         // меняю
@@ -98,14 +92,13 @@ $('a[href^="#"]').click( function(e){
         if (scroll_el==='#form') {
 
             $('.modal').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-            console.log(scroll_el);
+
         }else {
             $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-            // console.log('2');
-            // console.log(scroll_el);
+
         }
         // конец меняю
-	// $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+
 	}
     $(this).blur();
 	return false;
@@ -114,17 +107,17 @@ $('a[href^="#"]').click( function(e){
 //здесь в будующем подключим json файл откуда будем брать данные для вакансий
 function showVac() {
 
-    let template = `<div class="productModal__img">
-            <img src="" alt="" title="">
-        </div>
-        <div class="productModal__content">
-          <div class="productModal__name"></div>
-          <div class="productModal__price">$</div>
-          <div class="productModal__description"></div>
-          <div class="productModal__action">
-            <button class="btn js_buy" type="button">Buy</button>
-          </div>
-        </div>`;
+    // let template = `<div class="productModal__img">
+    //         <img src="" alt="" title="">
+    //     </div>
+    //     <div class="productModal__content">
+    //       <div class="productModal__name"></div>
+    //       <div class="productModal__price">$</div>
+    //       <div class="productModal__description"></div>
+    //       <div class="productModal__action">
+    //         <button class="btn js_buy" type="button">Buy</button>
+    //       </div>
+    //     </div>`;
 
     let modal = $('#vac');
     let body = modal.find('.modal-body');
@@ -140,14 +133,11 @@ $('.services__content').on('click', '.js_showDetail', function(){
     console.log('appData= '+appData);
     let modal = $('#detail');
     let body = modal.find('.modal-body');
-    // console.log($(this));
-    // let title = $(this).find($('.services__name')).text();
     let itemID = $(this).data('id');
     console.log(itemID);
 
     let index = null;
     for (var i = 0; i < appData.length; i++) {
-        // console.log(appData[i][0]);
         if (appData[i][0]===itemID) {
             index = i;
             break;
@@ -156,9 +146,7 @@ $('.services__content').on('click', '.js_showDetail', function(){
 
     let title = appData[index][1];
 
-    // let logoClass = $(this).find($('.services__logo')).children().attr('class');
     let logoClass ='icon-'+appData[index][2];
-    // console.log($(this).find($('.services__logo')));
     let desc = appData[index][3];
     let img = appData[index][5];
 
@@ -174,34 +162,8 @@ $('.services__content').on('click', '.js_showDetail', function(){
     </div>`;
     body.html(template);
     modal.modal('show');
-    // $('.modal-close').on('click', function(){
-    //     modal.modal('hide');
-    // });
+
 });
-// $('.js_showDetail').on('click', function(){
-//     console.log('click');
-//     let modal = $('#detail');
-//     let body = modal.find('.modal-body');
-//     // console.log($(this));
-//     let title = $(this).find($('.services__name')).text();
-//     let logoClass = $(this).find($('.services__logo')).children().attr('class');
-//     console.log($(this).find($('.services__logo')));
-//     console.log(logoClass);
-//
-//
-//     let template = `<div class="detail__wrapper">
-//       <h2 class="detail__title">`+ title + `</h2><i class="detail__image `+logoClass+`"></i>
-//       <div class="detail__content">
-//         <div class="detail__description">Описание</div>
-//
-//       </div>
-//     </div>`;
-//     body.html(template);
-//     modal.modal('show');
-//     // $('.modal-close').on('click', function(){
-//     //     modal.modal('hide');
-//     // });
-// });
 
 //две функции ниже отвечают за корректную работу выпадающего списка должностей
 $('.drop__wrapper').on('click', function() {
@@ -209,13 +171,13 @@ $('.drop__wrapper').on('click', function() {
     $(this).toggleClass('active');
 
     $(this).closest('.drop').find('.drop__list').toggleClass('open');
-    // checkFiels($('.drop__toogle'));
+
 });
 $(document).mouseup(function (e){
     let elem  =$('.drop__wrapper');
     let elemList = $('.drop__list');
     if (!elem.is(e.target)&& elem.has(e.target).length === 0 && !elemList.is(e.target) && elemList.has(e.target).length === 0 ) {
-        // elem.toggleClass('active');
+
         elem.removeClass('active');
         elem.closest('.drop').find('.drop__list').removeClass('open');
 
@@ -223,12 +185,9 @@ $(document).mouseup(function (e){
 });
 // меняем представление импут лайбла
 $('.fileDrop__input').on('change', function(e) {
-    // console.log('change check');
-    // console.log(this.files[0].name);
     let fileName = '',
     labelVal = $('.fileDrop__label').html();
-    // console.log('label val = '+labelVal);
-    console.log(this.files);
+
     if (this.files && this.files.length > 1) {
         console.log('true');
         fileName= 'Выбрано '+this.files.length+' файла ';
@@ -247,34 +206,22 @@ $('.fileDrop__input').on('change', function(e) {
 function posContatation(){
     let pos = "";
     let arr = [];
-    // $('.drop__checkbox').on('checked', function() {
-    //     pos = $(this).closest('.drop__item').text();
-    //     console.log(pos);
-    // });
+
     $('.drop__checkbox').on('click', function() {
-        // e.preventDefault();
+
 
         arr = [];
         $('.drop__checkbox').each(function(){
-            // console.log($(this).attr('checked'));
+
             if ($(this).prop("checked")) {
-                // console.log($(this).closest('.drop__item').find('.drop__position').text());
-                // if (arr.length) {
-                //     pos=" "+$(this).closest('.drop__item').find('.drop__position').text();
-                //     arr.push(pos);
-                // }else {
-                //     arr.push($(this).closest('.drop__item').find('.drop__position').text());
-                // }
+
                 arr.push($(this).closest('.drop__item').find('.drop__position').text());
-                // arr.push($(this).find('.drop__position').text());
-                // arr.push($(this).closest('.drop__item').text());
+
             }
 
         });
 
-        console.log(arr);
         if (arr.length) {
-            console.log('im here');
 
             pos = arr[0];
             for (var i = 1; i < arr.length; i++) {
@@ -289,16 +236,9 @@ function posContatation(){
             $('.drop__toogle').attr('placeholder', 'Желаемая должность');
 
         }
-        console.log('Значение: '+$('.drop__toogle').val());
+
         checkFiels($('.drop__toogle'));
 
-
-
-        // if ($(this).attr('checked') == 'checked') {
-        //
-        //     pos = $(this).closest('.drop__item').text();
-        //     console.log(pos);
-        // }
     });
 }
 posContatation();
@@ -441,12 +381,7 @@ function submitForm() {
 $('input').on('keyup', function() {
     checkFiels($(this));
 });
-// submitForm();
-// функция закрытия модальных окон
-// Отправка данных на сервер
-// $('[type=submit]').on('click', function(e) {
-//     e.preventDefault();
-// });
+
 
 //здесь мы прверяем форму и если какое то поле не заполенно - отменяем submit
 $('[type=submit]').on('click', function(e) {
@@ -457,7 +392,6 @@ $('[type=submit]').on('click', function(e) {
     // // Создаем переменную для счетчика пустых полей
     empty = 0;
 
-    console.log(fields);
     fields.each(function(index, el) {
         // Проверяем пустое ли поле
         if ($(this).val() === '') {
@@ -475,31 +409,9 @@ $('[type=submit]').on('click', function(e) {
 
 });
 function send(event, php){
-// event.preventDefault();
-console.log("Отправка запроса");
+
 showLoader($('#form'), true);
-// // Ищем обязательные поля
-// let fields = $('#form').find('[required]'),
-// // Создаем переменную для счетчика пустых полей
-// empty = 0;
-//     // fields = form.find('[required]');
-//     // console.log(form);
-// console.log(fields);
-// fields.each(function(index, el) {
-//     // Проверяем пустое ли поле
-//     if ($(this).val() === '') {
-//         // Увеличиваем счетчик полей на 1
-//         empty++;
-//         console.log(this);
-//     }
-//
-//     // Универсальная функция для проверки и визуализации пустых полей
-//     checkFiels($(this));
-//     });
-//     if (empty > 0) {
-//         return false;
-//     }
-//     else{
+
         // подготавливаем модальное окно с сообщением
         let modal = $('#info'),
             message = modal.find('.info__message');
@@ -551,10 +463,7 @@ showLoader($('#form'), true);
     // }
 
 }
-// $('#formSend').on('click', function() {
-//     console.log($('#form'));
-//
-// });
+
 function modalClose(){
     $('.modal-close').on('click', function() {
         $(this).closest('.modal').modal('hide');
@@ -580,10 +489,7 @@ function checkFiels(el) {
 
 // Показать лоадер при загрузке товаров
 function showLoader(el, background) {
-    // el.addClass('loaded');
-    // el.append('<div class="loader" />');
-    // console.log('show is run');
-    // el.addClass('loaded');
+
     let backg = '';
     if (background) {
         backg='banter-loader_background';
@@ -603,19 +509,7 @@ function showLoader(el, background) {
     </div>`);
 }
 
-// <div class="banter-loader">
-//   <div class="banter-loader__wrapper">
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//       <div class="banter-loader__box"></div>
-//   </div>
-// </div>
+
 
 // Скрыть лоадер при загрузке товаров
 function hideLoader(el, time = 10) {

@@ -10,7 +10,6 @@
 	position: fixed;
 	color: #000;
 	left: -330px;
-	// left: 0;
 	top: 0;
 	bottom: 0;
 	width: 300px;
@@ -113,14 +112,11 @@
 			content: '';
 			position: absolute;
 			bottom: -2px;
-			// left: 0;
 			left: 50%;
 			width: 0;
 			opacity: 0;
 			border-bottom: 1px solid;
 			transition: 0.3s;
-			// transition-property: width left;
-			// z-index: 100;
 
 		}
 

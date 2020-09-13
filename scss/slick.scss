@@ -3,7 +3,7 @@
 .slick-slider {
     position: relative;
     display: block;
-    // display: flex;
+
     box-sizing: border-box;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -14,8 +14,7 @@
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-    // max-width: 920px;
-    // margin-left: -15px;
+
 }
 
 .slick-list {
@@ -92,7 +91,7 @@
     }
 
     .slick-initialized & {
-        // display: block;
+
         display: flex;
     }
 
