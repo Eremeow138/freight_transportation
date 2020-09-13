@@ -1,4 +1,38 @@
+// $( document ).ready(function() {
+//     console.log('готово');
+// });
+let appData;
+window.onload = function () {
+    console.log('готово2');
+    hideLoader($('body'), 1000);
+};
+setServiceList($('.services__content'), 'https://script.google.com/macros/s/AKfycbzs72jZeb9ykJcfQBWqndyyUXNRvdt0qQeGICvJIobTET7iIqo/exec');
+function setServiceList(list, url) {
+    showLoader(list);
+    $.getJSON(url, function(json, status) {
+        console.log(json);
+        console.log(status);
+        appData = json.result;
+        console.log(appData);
 
+        if (status !== 'success') {
+            $('.services__content').html('Произошла ошибка, обновите страницу!');
+        } else {
+
+                    for (let i = 0; i < appData.length; i++) {
+                        setTemplateServiceList(list, i, appData);
+                    }
+                    hideLoader(list, 1000);
+                }
+    });
+
+}
+function setTemplateServiceList(list, index, arr) {
+    list.append(`<div class="services__item js_showDetail" data-id = "`+arr[index][0]+`">
+      <div class="services__logo"> <i class="icon-`+arr[index][2]+`"></i></div>
+      <div class="services__name">`+arr[index][1]+`</div>
+    </div>`);
+}
 // слик слайдер
 $('.js-slider').slick({
     // setting-name: setting-value
@@ -61,7 +95,7 @@ $('a[href^="#"]').click( function(e){
         // меняю
 
 
-        if (scroll_el=='#form') {
+        if (scroll_el==='#form') {
 
             $('.modal').animate({ scrollTop: $(scroll_el).offset().top }, 500);
             console.log(scroll_el);
@@ -101,22 +135,41 @@ function showVac() {
     //     modal.modal('hide');
     // });
 }
-$('.js_showDetail').on('click', function(){
 
+$('.services__content').on('click', '.js_showDetail', function(){
+    console.log('appData= '+appData);
     let modal = $('#detail');
     let body = modal.find('.modal-body');
     // console.log($(this));
-    let title = $(this).find($('.services__name')).text();
-    let logoClass = $(this).find($('.services__logo')).children().attr('class');
-    console.log($(this).find($('.services__logo')));
-    console.log(logoClass);
+    // let title = $(this).find($('.services__name')).text();
+    let itemID = $(this).data('id');
+    console.log(itemID);
 
+    let index = null;
+    for (var i = 0; i < appData.length; i++) {
+        // console.log(appData[i][0]);
+        if (appData[i][0]===itemID) {
+            index = i;
+            break;
+        }
+    }
+
+    let title = appData[index][1];
+
+    // let logoClass = $(this).find($('.services__logo')).children().attr('class');
+    let logoClass ='icon-'+appData[index][2];
+    // console.log($(this).find($('.services__logo')));
+    let desc = appData[index][3];
+    let img = appData[index][5];
 
     let template = `<div class="detail__wrapper">
-      <h2 class="detail__title">`+ title + `</h2><i class="detail__image `+logoClass+`"></i>
+      <h2 class="detail__title">`+ title + `<i class="detail__logo `+logoClass+`"></i></h2>
       <div class="detail__content">
-        <div class="detail__description">Описание</div>
-
+        <div class="detail__description">`+desc+`</div>
+        <div class="detail__image">
+            <img src="img/`+appData[index][5]+`" alt="`+appData[index][5]+`"/>
+            <p class="detail__price"> От `+appData[index][4]+`$</p>
+        </div>
       </div>
     </div>`;
     body.html(template);
@@ -125,6 +178,30 @@ $('.js_showDetail').on('click', function(){
     //     modal.modal('hide');
     // });
 });
+// $('.js_showDetail').on('click', function(){
+//     console.log('click');
+//     let modal = $('#detail');
+//     let body = modal.find('.modal-body');
+//     // console.log($(this));
+//     let title = $(this).find($('.services__name')).text();
+//     let logoClass = $(this).find($('.services__logo')).children().attr('class');
+//     console.log($(this).find($('.services__logo')));
+//     console.log(logoClass);
+//
+//
+//     let template = `<div class="detail__wrapper">
+//       <h2 class="detail__title">`+ title + `</h2><i class="detail__image `+logoClass+`"></i>
+//       <div class="detail__content">
+//         <div class="detail__description">Описание</div>
+//
+//       </div>
+//     </div>`;
+//     body.html(template);
+//     modal.modal('show');
+//     // $('.modal-close').on('click', function(){
+//     //     modal.modal('hide');
+//     // });
+// });
 
 //две функции ниже отвечают за корректную работу выпадающего списка должностей
 $('.drop__wrapper').on('click', function() {
@@ -497,3 +574,59 @@ function checkFiels(el) {
         el.addClass('valid');
     }
 }
+
+// Показать лоадер при загрузке товаров
+function showLoader(el) {
+    // el.addClass('loaded');
+    // el.append('<div class="loader" />');
+    // console.log('show is run');
+    // el.addClass('loaded');
+    el.append(`<div class="banter-loader banter-loader_targeting">
+      <div class="banter-loader__wrapper">
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+          <div class="banter-loader__box"></div>
+      </div>
+    </div>`);
+}
+
+// <div class="banter-loader">
+//   <div class="banter-loader__wrapper">
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//       <div class="banter-loader__box"></div>
+//   </div>
+// </div>
+
+// Скрыть лоадер при загрузке товаров
+function hideLoader(el, time = 10) {
+    console.log('hide is run');
+    console.log(el.children('.banter-loader'));
+    el.children('.banter-loader').addClass('loaded');
+    setTimeout(function () {
+        el.children('.banter-loader').addClass('loaded_hide');
+    }, time);
+}
+
+setInterval(function () {
+ date = new Date(),
+ h = date.getHours(),
+ m = date.getMinutes(),
+ s = date.getSeconds(),
+ h = (h < 10) ? '0' + h : h,
+ m = (m < 10) ? '0' + m : m,
+ s = (s < 10) ? '0' + s : s,
+ document.getElementById('time').innerHTML = h + ':' + m + ':' + s;
+}, 1000);

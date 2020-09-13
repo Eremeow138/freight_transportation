@@ -11,15 +11,24 @@
     <link href="css/jquery.formstyler.theme.css" rel="stylesheet"/>
   </head>
   <body>
+    <div class="banter-loader">
+      <div class="banter-loader__wrapper">
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+      </div>
+    </div>
     <div class="wrapper">
       <header class="header">
         <div class="header__top">
           <div class="header__content">
-            <div class="header__language">
-              <div class="header__lang">рус</div>
-              <div class="header__lang">eng</div>
-              <div class="header__lang">fr</div>
-            </div><a class="header__comunicationLink" href="tel: 8 (800) 123-45-67 ">
+            <div class="header__language"><span class="header__time" id="time">00:00:00</span></div><a class="header__comunicationLink" href="tel: 8 (800) 123-45-67 ">
               <div class="header__phone">8 (800) 123-45-67</div><i class="icon-phone"></i></a><a class="header__comunicationLink" href="sales@log.ru">
               <div class="header__email">sales@log.ru</div><i class="icon-envelop"></i></a>
           </div>
@@ -64,24 +73,21 @@
               <div class="transportation__box">
                 <div class="transportation__left">
                   <h2 class="section__title transportation__title">грузоперевозки по европе</h2>
-                  <div class="transportation__text">Страны Евросоюза, а также Украина, Белоруссия со всеми документами.</div>
-                  <div class="button btn btn-primary">Подробнее</div>
+                  <div class="transportation__text">Страны Евросоюза, а также Украина, Белоруссия со всеми документами.</div><a class="button btn btn-primary slider-more" href="#services">Подробнее</a>
                 </div>
                 <div class="transportation__right"><img class="transportation__image" src="img/truck.png" alt=""/></div>
               </div>
               <div class="transportation__box">
                 <div class="transportation__left">
                   <h2 class="section__title transportation__title">Морская перевозка грузов</h2>
-                  <div class="transportation__text">Северный полюс, а также Тихий океан со всеми документами</div>
-                  <div class="button btn btn-primary">Подробнее</div>
+                  <div class="transportation__text">Северный полюс, а также Тихий океан со всеми документами</div><a class="button btn btn-primary slider-more" href="#services">Подробнее</a>
                 </div>
                 <div class="transportation__right"><img class="transportation__image" src="img/boath.png" alt=""/></div>
               </div>
               <div class="transportation__box">
                 <div class="transportation__left">
                   <h2 class="section__title transportation__title">доставка груза в космос</h2>
-                  <div class="transportation__text">Международная космическая станция, а также Луна со всеми документами</div>
-                  <div class="button btn btn-primary">Подробнее</div>
+                  <div class="transportation__text">Международная космическая станция, а также Луна со всеми документами</div><a class="button btn btn-primary slider-more" href="#services">Подробнее</a>
                 </div>
                 <div class="transportation__right"><img class="transportation__image" src="img/rocket.png" alt=""/></div>
               </div>
@@ -94,44 +100,10 @@
           <div class="container_center">
             <div class="services__box">
               <h2 class="section__title">Услуги</h2>
-              <div class="services__content">
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
-                  <div class="services__name">Авиаперевозки</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-ship"></i></div>
-                  <div class="services__name">Морская перевозка</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-rocket"></i></div>
-                  <div class="services__name">Космическая доставка</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-truck"></i></div>
-                  <div class="services__name">Грузоперевозки</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-airplane-flight"></i></div>
-                  <div class="services__name">Авиаперевозки</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-ship"></i></div>
-                  <div class="services__name">Морская перевозка</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-rocket"></i></div>
-                  <div class="services__name">Космическая доставка</div>
-                </div>
-                <div class="services__item js_showDetail">
-                  <div class="services__logo"> <i class="icon-truck"></i></div>
-                  <div class="services__name">Грузоперевозки</div>
-                </div>
-              </div>
+              <div class="services__content"></div>
             </div>
           </div>
         </section>
-        <!-- end services-->
         <!-- begin company-->
         <section class="company section" id="company">
           <div class="container_center"> 
@@ -275,6 +247,7 @@
                   <h2 class="detail__title">Стандартный заголовок<i class="detail__icon"></i></h2>
                   <div class="detail__content">
                     <div class="detail__description">Описание</div>
+                    <div class="detail__image"><img src="img/services/services-plane.jpg" alt="plane"/></div>
                   </div>
                 </div>
               </div>
@@ -297,7 +270,7 @@
                 <div class="footer__phones"><a class="footer__phone" href="tel: +7 (812) 344-56-65 ">+7 (812) 344-56-65</a><a class="footer__phone" href="tel: +7 (812) 355-56-65 ">+7 (812) 355-56-65</a></div>
               </div>
             </div>
-            <div class="footer__right"><a class="footer__author" href="http:// D-E-N.ru">Разработано - D-E-N.ru</a></div>
+            <div class="footer__right"><a class="footer__author" href="http://D-E-N.ru">Нарисовал - D-E-N.ru</a></div>
           </div>
         </div>
       </div>

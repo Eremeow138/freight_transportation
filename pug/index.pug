@@ -1,5 +1,5 @@
 extends layout/layout.pug
-
+//- https://script.googleusercontent.com/macros/echo?user_content_key=S1Ey-U3OphnDciGAjHLf0KkSmUbB5Ki6AxoxdYHv9YDA-7RqUacRYfDxgFNZfpPfIeKs6CuRk3GMbtsqwJhDsNhICEC-Qohmm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMW_OXms0A3ShT7nHazpcv-aVsg1BfO0lrfWaQkvICmQ8LLz_s85qd_FeaTyxrnW3Lxy_u9Yn2NR&lib=MBSFjEHaVcRJil1EnUJ80q6Y1IB56cP-N
 block content
     // begin home
     section#home.home.section
@@ -21,21 +21,21 @@ block content
                     .transportation__left
                         h2.section__title.transportation__title грузоперевозки по европе
                         .transportation__text Страны Евросоюза, а также Украина, Белоруссия со всеми документами.
-                        .button.btn.btn-primary Подробнее
+                        a(href="#services").button.btn.btn-primary.slider-more Подробнее
                     .transportation__right
                         img(src="img/truck.png", alt="").transportation__image
                 .transportation__box
                     .transportation__left
                         h2.section__title.transportation__title Морская перевозка грузов
                         .transportation__text Северный полюс, а также Тихий океан со всеми документами
-                        .button.btn.btn-primary Подробнее
+                        a(href="#services").button.btn.btn-primary.slider-more Подробнее
                     .transportation__right
                         img(src="img/boath.png", alt="").transportation__image
                 .transportation__box
                     .transportation__left
                         h2.section__title.transportation__title доставка груза в космос
                         .transportation__text Международная космическая станция, а также Луна со всеми документами
-                        .button.btn.btn-primary Подробнее
+                        a(href="#services").button.btn.btn-primary.slider-more Подробнее
                     .transportation__right
                         img(src="img/rocket.png", alt="").transportation__image
 
@@ -46,13 +46,15 @@ block content
             .services__box
                 h2.section__title Услуги
                 .services__content
-                    each item in [{logo: 'icon-airplane-flight', name: 'Авиаперевозки'},{logo: 'icon-ship', name: 'Морская перевозка'},{logo: 'icon-rocket', name: 'Космическая доставка'},{logo: 'icon-truck', name: 'Грузоперевозки'},{logo: 'icon-airplane-flight', name: 'Авиаперевозки'},{logo: 'icon-ship', name: 'Морская перевозка'},{logo: 'icon-rocket', name: 'Космическая доставка'},{logo: 'icon-truck', name: 'Грузоперевозки'}]
-                        .services__item.js_showDetail
-                            .services__logo 
-                                //- i.icon-airplane-flight
-                                i(class= item.logo)
-                            .services__name= item.name
-    // end services
+                    //- данные берем из таблицы google
+                    //- each item in [{logo: 'icon-airplane-flight', name: 'Авиаперевозки'},{logo: 'icon-ship', name: 'Морская перевозка'},{logo: 'icon-rocket', name: 'Космическая доставка'},{logo: 'icon-truck', name: 'Грузоперевозки'},{logo: 'icon-airplane-flight', name: 'Авиаперевозки'},{logo: 'icon-ship', name: 'Морская перевозка'},{logo: 'icon-rocket', name: 'Космическая доставка'},{logo: 'icon-truck', name: 'Грузоперевозки'}]
+                    //-     .services__item.js_showDetail
+                    //-         .services__logo 
+                    //-             //- i.icon-airplane-flight
+                    //-             i(class= item.logo)
+                    //-         .services__name= item.name
+
+
     // begin company
     section#company.company.section
         .container_center 
@@ -210,6 +212,9 @@ block content
                             i.detail__icon
                         .detail__content
                             .detail__description Описание
+                            .detail__image
+                                img(src="img/services/services-plane.jpg", alt="plane")
+
 
 
 

@@ -1,6 +1,6 @@
 ymaps.ready(function () {
     var myMap = new ymaps.Map('yandexMap', {
-            center: [59.927375, 30.374972],
+            center: [59.927125, 30.374860],
             zoom: 17
         }, {
             searchControlProvider: 'yandex#search'
@@ -24,7 +24,8 @@ ymaps.ready(function () {
             iconImageSize: [70, 70],
             // Смещение левого верхнего угла иконки относительно
             // её "ножки" (точки привязки).
-            iconImageOffset: [-75, -10]
+            // iconImageOffset: [-75, -10]
+            iconImageOffset: [-70, -70]
         });
 
         // myPlacemarkWithContent = new ymaps.Placemark([59.927375, 30.374972], {
