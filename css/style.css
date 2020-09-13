@@ -794,7 +794,7 @@ template {
   }
 }
 .navbar__item {
-  margin: 30px 60px;
+  margin: 30px 60px 30px 100px;
 }
 .navbar__item:last-child {
   margin-right: 0;
@@ -1317,7 +1317,7 @@ template {
 
 .slick-arrowBox {
   position: absolute;
-  z-index: 100;
+  z-index: 9;
   bottom: 20px;
   cursor: pointer;
   display: flex;
@@ -1625,7 +1625,7 @@ template {
   width: 100%;
   height: 450px;
   background: linear-gradient(0deg, rgba(57, 63, 71, 0.6), rgba(57, 63, 71, 0.6));
-  z-index: 1000;
+  z-index: 9;
 }
 .map__content_dark:hover:before {
   content: "";
@@ -1689,6 +1689,7 @@ template {
 }
 
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2029,6 +2030,9 @@ template {
   position: absolute;
   background: transparent;
   z-index: 1500;
+}
+.banter-loader_background {
+  background: rgba(47, 52, 58, 0.7);
 }
 .banter-loader__wrapper {
   position: relative;

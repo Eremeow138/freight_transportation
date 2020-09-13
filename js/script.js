@@ -477,6 +477,7 @@ $('[type=submit]').on('click', function(e) {
 function send(event, php){
 // event.preventDefault();
 console.log("Отправка запроса");
+showLoader($('#form'), true);
 // // Ищем обязательные поля
 // let fields = $('#form').find('[required]'),
 // // Создаем переменную для счетчика пустых полей
@@ -525,22 +526,24 @@ console.log("Отправка запроса");
             		// Если сообщение отправлено
             		// alert("Сообщение отправлено");
                     // Пример с открытием окна
+                    hideLoader($('#form'));
                     modal.modal('show');
                     message.html('Ваша форма успешно отправлена. <br> Мы свяжемся с вами в ближайшее время.');
             	} else {
             		// Если произошла ошибка
             		// alert("Ошибка. Сообщение не отправлено");
                     // Пример с открытием окна
+                    hideLoader($('#form'));
                     modal.modal('show');
                     message.html('Ошибка. Сообщение не отправлено');
             	}
             // Если не удалось связаться с php файлом
             // } else {alert("Ошибка сервера. Номер: "+req.status);}};
-            } else {modal.modal('show'); message.html('Ошибка сервера. Номер: '+req.status);}};
+            } else {hideLoader($('#form')); modal.modal('show'); message.html('Ошибка сервера. Номер: '+req.status);}};
 
         // Если не удалось отправить запрос. Стоит блок на хостинге
         // req.onerror = function() {alert("Ошибка отправки запроса");};
-        req.onerror = function() {modal.modal('show'); message.html('Ошибка отправки запроса');};
+        req.onerror = function() {hideLoader($('#form')); modal.modal('show'); message.html('Ошибка отправки запроса');};
         // console.log(event.target);
         // console.log($('#form').submit());
         req.send(new FormData(event.target));
@@ -576,12 +579,16 @@ function checkFiels(el) {
 }
 
 // Показать лоадер при загрузке товаров
-function showLoader(el) {
+function showLoader(el, background) {
     // el.addClass('loaded');
     // el.append('<div class="loader" />');
     // console.log('show is run');
     // el.addClass('loaded');
-    el.append(`<div class="banter-loader banter-loader_targeting">
+    let backg = '';
+    if (background) {
+        backg='banter-loader_background';
+    }
+    el.append(`<div class="banter-loader banter-loader_targeting `+backg+`">
       <div class="banter-loader__wrapper">
           <div class="banter-loader__box"></div>
           <div class="banter-loader__box"></div>

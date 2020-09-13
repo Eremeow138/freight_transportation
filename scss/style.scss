@@ -231,7 +231,7 @@
 
     &-arrowBox {
         position: absolute;
-        z-index: 100;
+        z-index: 9;
         bottom: 20px;
         cursor: pointer;
         display: flex;
@@ -686,7 +686,7 @@
                 width: 100%;
                 height: 450px;
                 background: linear-gradient(0deg, rgba(57, 63, 71, 0.6), rgba(57, 63, 71, 0.6));
-                z-index: 1000;
+                z-index: 9;
 
             }
 
@@ -765,6 +765,7 @@
 }
 
 .form {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1140,6 +1141,17 @@ $animTime: 4s;
 .banter-loader {
     transition: 0.3s opacity;
 
+    &_targeting {
+        position: absolute;
+        background: transparent;
+        z-index: 1500;
+
+    }
+
+    &_background {
+        background: rgba(47, 52, 58, 0.7);
+
+    }
     /*фиксированное позиционирование*/
     position: fixed;
     /* координаты положения */
@@ -1151,13 +1163,6 @@ $animTime: 4s;
     background: #2F343A;
     /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
     z-index: 2000;
-
-    &_targeting {
-        position: absolute;
-        background: transparent;
-        z-index: 1500;
-
-    }
 
     &__wrapper {
 
