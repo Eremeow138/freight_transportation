@@ -855,8 +855,7 @@
 
         }
 
-        &:focus + .drop__position:before {
-            }
+        &:focus + .drop__position:before {}
 
         &:hover + .drop__position:before {
             opacity: 1;
