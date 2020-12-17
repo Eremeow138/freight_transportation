@@ -8,4 +8,4 @@
 
 Простите за ужасные коммиты, я раньше не умел их правильно называть.
 
-<a href="https://eremeow.ru/projects/freight_transportation/index.html">Ссылка на сайт</a>
+<a href="https://eremeow.ru/projects/freight_transportation/index.html"  target="_blank">Ссылка на сайт</a>
